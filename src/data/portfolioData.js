@@ -121,19 +121,19 @@ export const portfolioData = {
       {
         role: "Co-founder",
         company: "TaxBridge · AI Tax Middleware",
-        period: "Present",
+        period: "2026 – Present",
         note: "Qualified as Hackaholics 7.0 Finalist"
       },
       {
         role: "Frontend Developer Intern",
         company: "Arrowstack · Kuza Store & Trackr Logistics",
-        period: "Internship",
+        period: "2026",
         note: "WCAG AAA E-commerce & Real-time Telemetry"
       },
       {
-        role: "Full Stack Developer Intern",
+        role: "Fullstack Developer Intern",
         company: "Oasis · Blaze Platform",
-        period: "Internship",
+        period: "2026",
         note: "Full-Stack Real-time Socket.io Food Ordering Platform"
       },
       {
@@ -575,7 +575,7 @@ export const portfolioData = {
       {
         company: "TaxBridge",
         role: "Co-founder, ML Engineer & Infrastructure Lead",
-        period: "2024 – Present",
+        period: "2026 – Present",
         location: "Lagos, Nigeria",
         tagline: "AI-powered Tax Compliance Middleware",
         highlights: [
@@ -587,7 +587,7 @@ export const portfolioData = {
       {
         company: "Arrowstack",
         role: "Frontend Developer Intern",
-        period: "2024",
+        period: "2026",
         location: "Remote",
         tagline: "Product Internship",
         highlights: [
@@ -598,7 +598,7 @@ export const portfolioData = {
       {
         company: "Oasis",
         role: "Fullstack Developer Intern",
-        period: "2024",
+        period: "2026",
         location: "Remote",
         tagline: "Product Internship",
         highlights: [
@@ -648,7 +648,7 @@ export const portfolioData = {
         isLive: true,
         liveUrl: "https://agrofinis.com.ng",
         githubUrl: "https://github.com/adeyanjufuhad/AgroFinis",
-        stack: "React · Supabase · FastAPI",
+        stack: "React · Supabase · FastAPI | 2026 – Present",
         highlights: [
           "Real-time weather data, AI crop advisory, and commodity market listings for Nigerian farmers.",
           "Listed on Orynth (Solana-based product discovery) under ticker AGRF; live at agrofinis.com.ng."
@@ -659,7 +659,7 @@ export const portfolioData = {
         isLive: true,
         liveUrl: "https://luxe-estate.vercel.app",
         githubUrl: "https://github.com/adeyanjufuhad/Luxe_Estate",
-        stack: "React · Node.js · MongoDB · Tailwind CSS",
+        stack: "React · Node.js · MongoDB · Tailwind CSS | 2026",
         highlights: [
           "Full-stack luxury property listing portal for the UK market with property search, filters, and detailed listing views.",
           "Built a Node.js / MongoDB backend for property data management with a fully responsive React frontend."
@@ -687,7 +687,7 @@ export const portfolioData = {
     ],
     certifications: [
       {
-        name: "Fullstack Developer Training — Nupat Technologies",
+        name: "Fullstack Developer Training — Nupat Technologies, 2024",
         issuer: "Best Graduating Student"
       }
     ]
