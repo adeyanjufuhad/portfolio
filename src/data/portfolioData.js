@@ -539,56 +539,130 @@ export const portfolioData = {
   resume: {
     pdfUrl: "/Adeyanju_Fuhad_Resume.pdf",
     filename: "Adeyanju_Fuhad_Resume.pdf",
+    name: "Adeyanju Fuhad",
     headline: "Fullstack Developer — React · Next.js · Node.js · TypeScript · Python",
     location: "Lagos, Nigeria",
+    phone: "07049294736",
+    email: "adeyanjufuhad@gmail.com",
     github: "github.com/adeyanjufuhad",
+    githubUrl: "https://github.com/adeyanjufuhad",
     linkedin: "linkedin.com/in/adeyanjufuhad",
-    summary: "Fullstack developer building production-grade web apps. Completed software internships at Arrowstack (Frontend) and Oasis (Full Stack), shipping three live products — Blaze, Kuza, and Trackr. Co-founded TaxBridge, Nigeria's AI-powered tax compliance middleware (in-progress). Trained at Nupat Technologies (Best Graduating Student). Currently studying Computer Engineering at OAU.",
+    linkedinUrl: "https://linkedin.com/in/adeyanjufuhad",
+    summary: "Fullstack developer with hands-on experience shipping production web applications across frontend and backend stacks. Completed internships at Arrowstack and Oasis, delivering three live products — Blaze, Kuza, and Trackr. Co-founded TaxBridge, Nigeria's AI-powered tax compliance middleware platform, serving as ML Engineer and Infrastructure Lead. Trained at Nupat Technologies (Best Graduating Student). Currently pursuing a B.Sc. in Computer Engineering at Obafemi Awolowo University.",
     technicalSkills: [
       {
         category: "Frontend",
-        skills: ["React", "JavaScript/TypeScript", "HTML5/CSS3", "Tailwind CSS", "React Native/Expo"],
+        skills: ["React", "Next.js", "JavaScript / TypeScript", "HTML5 / CSS3", "Tailwind CSS", "shadcn/ui", "React Native / Expo"],
         color: "var(--ca-yellow)"
       },
       {
         category: "Backend",
-        skills: ["Python/FastAPI", "Node.js/Express", "REST APIs", "Supabase", "MongoDB"],
+        skills: ["Python / FastAPI", "Node.js / Express", "REST APIs", "Supabase", "MongoDB"],
         color: "var(--ca-green)"
       },
       {
-        category: "Tools & DevOps",
-        skills: ["Git/GitHub", "Vercel", "Render", "EAS Build", "Paystack", "OPay"],
+        category: "Tools",
+        skills: ["Git / GitHub", "Vercel", "Render", "EAS Build", "Socket.io", "Paystack", "OPay", "Razorpay", "Cloudinary", "node-cron"],
         color: "var(--ca-magenta)"
+      },
+      {
+        category: "Concepts",
+        skills: ["JWT Authentication", "Real-time Systems", "Admin Dashboards", "Responsive Design", "WCAG Accessibility"],
+        color: "var(--ca-blue)"
       }
     ],
     experience: [
       {
         company: "TaxBridge",
-        role: "Co-founder",
-        period: "Present",
-        location: "Nigeria",
+        role: "Co-founder, ML Engineer & Infrastructure Lead",
+        period: "2024 – Present",
+        location: "Lagos, Nigeria",
+        tagline: "AI-powered Tax Compliance Middleware",
         highlights: [
-          "Co-founded Nigeria's AI-powered tax compliance middleware (in-progress)."
+          "Architecting Nigeria's first AI-powered tax compliance middleware platform integrating with FIRS data systems.",
+          "Leading ML pipeline design and cloud infrastructure for automated VAT, WHT, and CIT reconciliation.",
+          "Building FastAPI microservices backend and React dashboard for real-time compliance monitoring."
         ]
       },
       {
         company: "Arrowstack",
         role: "Frontend Developer Intern",
-        period: "Internship",
+        period: "2024",
         location: "Remote",
+        tagline: "Product Internship",
         highlights: [
-          "Shipped Kuza Store — accessible Next.js 14 e-commerce storefront with WCAG AAA keyboard navigation and persistent cart state.",
-          "Shipped Trackr — real-time logistics operations dashboard with live KPI trend indicators, driver allocation, and Recharts telemetry."
+          "Delivered Kuza (Next.js e-commerce storefront) with WCAG-compliant accessibility and persistent cart logic.",
+          "Built Trackr, a real-time logistics dashboard with Recharts analytics, sort/filter/pagination, and alerts centre."
         ]
       },
       {
         company: "Oasis",
-        role: "Full Stack Developer Intern",
-        period: "Internship",
+        role: "Fullstack Developer Intern",
+        period: "2024",
         location: "Remote",
+        tagline: "Product Internship",
         highlights: [
-          "Shipped Blaze — full-stack food ordering platform with interactive custom pizza builder and real-time Socket.io kitchen updates.",
-          "Integrated Razorpay payment processing, JWT authentication, and automated low-stock email alerts via node-cron."
+          "Shipped Blaze, a full-stack pizza ordering platform with real-time order tracking via Socket.io and Razorpay payments.",
+          "Implemented JWT auth flow with email verification, password reset, Cloudinary image uploads, and admin inventory dashboard."
+        ]
+      }
+    ],
+    projects: [
+      {
+        title: "Blaze — Pizza Ordering & Delivery Platform",
+        isLive: true,
+        liveUrl: "https://blaze-pizza.vercel.app",
+        githubUrl: "https://github.com/adeyanjufuhad/Blaze",
+        stack: "React · Node.js · Express · MongoDB · Socket.io · Razorpay | Oasis Internship",
+        highlights: [
+          "Full-stack food ordering platform with a 4-step custom pizza builder and real-time order status tracking via Socket.io.",
+          "Integrated Razorpay payments, JWT auth with email verification and password reset, and Cloudinary image uploads.",
+          "Admin dashboard with inventory management and automated low-stock email alerts via node-cron."
+        ]
+      },
+      {
+        title: "Kuza — Streetwear E-Commerce Storefront",
+        isLive: true,
+        liveUrl: "https://kuza-store.vercel.app",
+        githubUrl: "https://github.com/adeyanjufuhad/kuza-store",
+        stack: "Next.js 14 · TypeScript · Tailwind CSS · shadcn/ui | Arrowstack Internship",
+        highlights: [
+          "Accessible e-commerce storefront with product filters, sort, persistent cart via Context API, and full checkout flow.",
+          "WCAG-compliant keyboard navigation, responsive mobile layout, and complete loading/error/empty state handling."
+        ]
+      },
+      {
+        title: "Trackr — Logistics Operations Dashboard",
+        isLive: true,
+        liveUrl: "https://trackr-logistics.vercel.app",
+        githubUrl: "https://github.com/adeyanjufuhad/Trackr",
+        stack: "React 18 · TypeScript · Tailwind CSS · Recharts · shadcn/ui | Arrowstack Internship",
+        highlights: [
+          "Real-time logistics dashboard for tracking shipments, drivers, and KPIs with trend indicators.",
+          "Shipments table with sort, filter, and pagination; line and bar charts for delivery analytics via Recharts.",
+          "Alerts centre with Critical/Warning/Info severity levels, drivers overview, and collapsible responsive sidebar."
+        ]
+      },
+      {
+        title: "AgroFinis — Agritech Platform",
+        isLive: true,
+        liveUrl: "https://agrofinis.com.ng",
+        githubUrl: "https://github.com/adeyanjufuhad/AgroFinis",
+        stack: "React · Supabase · FastAPI",
+        highlights: [
+          "Real-time weather data, AI crop advisory, and commodity market listings for Nigerian farmers.",
+          "Listed on Orynth (Solana-based product discovery) under ticker AGRF; live at agrofinis.com.ng."
+        ]
+      },
+      {
+        title: "Luxe Estate — UK Luxury Real Estate Portal",
+        isLive: true,
+        liveUrl: "https://luxe-estate.vercel.app",
+        githubUrl: "https://github.com/adeyanjufuhad/Luxe_Estate",
+        stack: "React · Node.js · MongoDB · Tailwind CSS",
+        highlights: [
+          "Full-stack luxury property listing portal for the UK market with property search, filters, and detailed listing views.",
+          "Built a Node.js / MongoDB backend for property data management with a fully responsive React frontend."
         ]
       }
     ],
@@ -606,15 +680,15 @@ export const portfolioData = {
         year: "2024"
       },
       {
-        title: "Qualified for Hackaholics 7.0 Finalist",
-        issuer: "Wema Bank Hackathon, Grand Pitch Day at YABATECH, Lagos",
+        title: "Qualified for Hackaholics 7.0",
+        issuer: "Wema Bank hackathon, Grand Pitch Day at YABATECH, Lagos",
         year: "2026"
       }
     ],
     certifications: [
       {
-        name: "Fullstack Developer Training (Best Graduating Student)",
-        issuer: "Nupat Technologies"
+        name: "Fullstack Developer Training — Nupat Technologies",
+        issuer: "Best Graduating Student"
       }
     ]
   },

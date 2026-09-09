@@ -70,7 +70,7 @@
 portfolio/
 ├── public/                      # Static assets, resume PDF, and images
 │   ├── images/                  # Event photos, project screenshots, polaroids
-│   ├── Adeyanju-Fuhad-Resume.pdf # Official downloadable resume
+│   ├── Adeyanju_Fuhad_Resume.pdf # Official downloadable resume
 │   └── icon.svg                 # Site favicon
 ├── server/                      # Lightweight Node/Express backend
 │   ├── server.js                # Express API endpoints (/api/contact, /api/health)
