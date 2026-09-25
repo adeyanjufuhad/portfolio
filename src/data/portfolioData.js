@@ -165,8 +165,50 @@ export const portfolioData = {
     relatedTitle: "more projects",
     items: [
       {
-        slug: "blaze",
+        slug: "fasttrack",
         num: "01",
+        featured: true,
+        title: "FastTrack",
+        subtitle: "Digital Onboarding & Loan Pre-qualification",
+        description: "A five-minute onboarding and loan pre-qualification app for Nigerian lenders. Applicants get an indicative amount and tier, and the credit officer gets a scored file to approve, query or decline.",
+        category: "Fintech",
+        tags: ["Flutter", "Dart", "Neon Postgres", "Neon Auth", "Node.js", "TypeScript", "Google Gemini", "GitHub Actions"],
+        color: "var(--ca-ink)",
+        textColor: "text-white",
+        bgClass: "bg-[var(--ca-ink)]",
+        liveUrl: "https://adeyanjufuhad.github.io/FastTrack/",
+        githubUrl: "https://github.com/adeyanjufuhad/FastTrack",
+        heroImages: [
+          { type: "image", src: "/projects/fasttrack-result.jpg", alt: "FastTrack pre-qualification result next to a paper loan form" }
+        ],
+        facts: [
+          { label: "Role", value: "Solo Full Stack Engineer", color: "var(--ca-cyan)", rotate: "-rotate-2", clip: "ca-clip-blob-1" },
+          { label: "Timeline", value: "MVP Sprint", color: "var(--ca-yellow-soft)", rotate: "rotate-2", clip: "ca-clip-blob-2" },
+          { label: "Year", value: "2026", color: "var(--ca-purple)", rotate: "rotate-1", clip: "ca-clip-blob-3" }
+        ],
+        story: {
+          problem: {
+            description: "Smaller Nigerian lenders (asset managers with a lending arm, cooperatives and staff-loan schemes) still take applications on PDF forms and email. Applicants wait days to hear anything, and officers retype the same details from bank statements before they can even read the file.",
+            media: []
+          },
+          solution: {
+            description: "Built a Flutter app, for web and Android, on a Neon backend: Postgres, Neon Auth with Ed25519 JWT verification, private object storage with 10-minute presigned links, and a single Node.js function that enforces every access rule on the server. Applicants verify their BVN/NIN (sandbox), upload an ID and a statement or paste bank SMS alerts, and sign. Gemini pulls the income and spending figures out of those documents, and a deterministic rules engine, not the AI, sets the amount and tier.",
+            media: []
+          },
+          result: {
+            description: "A live, pitch-ready MVP: the applicant sees a pre-qualified amount in seconds, and the officer dashboard shows a scored file with approve, more-info and decline actions. CI/CD publishes the website, the live app and an offline demo to GitHub Pages, releases the Android APK and deploys the Neon Function.",
+            facts: [
+              { label: "Scoring", value: "~3s", desc: "From upload to pre-qualified amount", type: "text", color: "var(--ca-cyan)", rotate: "-rotate-2" },
+              { label: "Tests", value: "97", desc: "Across the app, API and rules engine", type: "count", color: "var(--ca-yellow-soft)", rotate: "rotate-2" },
+              { label: "Platforms", value: "Web + Android", desc: "Live app, offline demo & APK", type: "text", color: "var(--ca-purple)", rotate: "rotate-1" }
+            ],
+            media: []
+          }
+        }
+      },
+      {
+        slug: "blaze",
+        num: "02",
         featured: true,
         title: "Blaze",
         subtitle: "Wood-Fired Artisanal Pizza Ordering Platform",
@@ -208,7 +250,7 @@ export const portfolioData = {
       },
       {
         slug: "kuza-store",
-        num: "02",
+        num: "03",
         featured: true,
         title: "Kuza Stores",
         subtitle: "Monochrome Streetwear E-Commerce Experience",
@@ -250,7 +292,7 @@ export const portfolioData = {
       },
       {
         slug: "luxe-estate",
-        num: "03",
+        num: "04",
         featured: false,
         title: "Luxe Estate",
         subtitle: "Luxury UK Real Estate Discovery & Property Portal",
@@ -292,7 +334,7 @@ export const portfolioData = {
       },
       {
         slug: "agrofinis",
-        num: "04",
+        num: "05",
         featured: false,
         title: "AgroFinis",
         subtitle: "All-in-One Agri-Platform & Market Intelligence",
@@ -334,7 +376,7 @@ export const portfolioData = {
       },
       {
         slug: "trackr",
-        num: "05",
+        num: "06",
         featured: false,
         title: "Trackr",
         subtitle: "Real-Time Logistics & Fleet Operations Dashboard",
@@ -376,7 +418,7 @@ export const portfolioData = {
       },
       {
         slug: "owo",
-        num: "06",
+        num: "07",
         featured: false,
         title: "Owo",
         subtitle: "Nigerian Fintech Wallet & Savings Onboarding",
@@ -517,6 +559,20 @@ export const portfolioData = {
         x: 770,
         y: 410,
         zIndex: 7
+      },
+      {
+        id: "item-fasttrack",
+        title: "FastTrack",
+        note: "Loan pre-qualification in 5 minutes",
+        color: "var(--ca-cyan)",
+        img: "/projects/fasttrack-result.jpg",
+        isLogo: false,
+        link: "/case-studies/fasttrack",
+        rotate: -2,
+        badgeRotate: 4,
+        x: 1080,
+        y: 400,
+        zIndex: 8
       }
     ]
   },
@@ -540,7 +596,7 @@ export const portfolioData = {
     pdfUrl: "/Adeyanju_Fuhad_Resume.pdf",
     filename: "Adeyanju_Fuhad_Resume.pdf",
     name: "Adeyanju Fuhad",
-    headline: "Fullstack Developer — React · Next.js · Node.js · TypeScript · Python",
+    headline: "Fullstack Developer — React · Next.js · Node.js · TypeScript · Python · Flutter",
     location: "Lagos, Nigeria",
     phone: "07049294736",
     email: "adeyanjufuhad@gmail.com",
@@ -548,21 +604,21 @@ export const portfolioData = {
     githubUrl: "https://github.com/adeyanjufuhad",
     linkedin: "linkedin.com/in/adeyanjufuhad",
     linkedinUrl: "https://linkedin.com/in/adeyanjufuhad",
-    summary: "Fullstack developer with hands-on experience shipping production web applications across frontend and backend stacks. Completed internships at Arrowstack and Oasis, delivering three live products — Blaze, Kuza, and Trackr. Co-founded TaxBridge, Nigeria's AI-powered tax compliance middleware platform, serving as ML Engineer and Infrastructure Lead. Trained at Nupat Technologies (Best Graduating Student). Currently pursuing a B.Sc. in Computer Engineering at Obafemi Awolowo University.",
+    summary: "Fullstack developer with hands-on experience shipping production web and mobile applications across frontend and backend stacks. Completed internships at Arrowstack and Oasis, delivering three live products — Blaze, Kuza, and Trackr. Built FastTrack, a Flutter and Neon loan pre-qualification app for Nigerian lenders that pairs Gemini document extraction with a deterministic rules engine. Co-founded TaxBridge, Nigeria's AI-powered tax compliance middleware platform, serving as ML Engineer and Infrastructure Lead. Trained at Nupat Technologies (Best Graduating Student). Currently pursuing a B.Sc. in Computer Engineering at Obafemi Awolowo University.",
     technicalSkills: [
       {
         category: "Frontend",
-        skills: ["React", "Next.js", "JavaScript / TypeScript", "HTML5 / CSS3", "Tailwind CSS", "shadcn/ui", "React Native / Expo"],
+        skills: ["React", "Next.js", "JavaScript / TypeScript", "HTML5 / CSS3", "Tailwind CSS", "shadcn/ui", "React Native / Expo", "Flutter / Dart"],
         color: "var(--ca-yellow)"
       },
       {
         category: "Backend",
-        skills: ["Python / FastAPI", "Node.js / Express", "REST APIs", "Supabase", "MongoDB"],
+        skills: ["Python / FastAPI", "Node.js / Express", "REST APIs", "PostgreSQL", "Neon (Postgres, Auth, Storage, Functions)", "Supabase", "MongoDB"],
         color: "var(--ca-green)"
       },
       {
         category: "Tools",
-        skills: ["Git / GitHub", "Vercel", "Render", "EAS Build", "Socket.io", "Paystack", "OPay", "Razorpay", "Cloudinary", "node-cron"],
+        skills: ["Git / GitHub", "GitHub Actions CI/CD", "Google Gemini API", "Vercel", "Render", "EAS Build", "Socket.io", "Paystack", "OPay", "Razorpay", "Cloudinary", "node-cron"],
         color: "var(--ca-magenta)"
       },
       {
@@ -608,6 +664,18 @@ export const portfolioData = {
       }
     ],
     projects: [
+      {
+        title: "FastTrack — Digital Onboarding & Loan Pre-qualification",
+        isLive: true,
+        liveUrl: "https://adeyanjufuhad.github.io/FastTrack/",
+        githubUrl: "https://github.com/adeyanjufuhad/FastTrack",
+        stack: "Flutter · Dart · Neon (Postgres, Auth, Storage, Functions) · Node.js / TypeScript · Gemini · GitHub Actions | 2026",
+        highlights: [
+          "Five-minute applicant flow (sandbox BVN/NIN check, ID and statement upload or bank-SMS paste, e-signature) that returns a pre-qualified amount and tier; officer dashboard with a scored file and approve / more-info / decline actions.",
+          "Gemini extracts income and spending from documents while a deterministic rules engine sets the amount, so the AI never decides; a model-fallback chain keeps scoring up, with results in about 3 seconds.",
+          "Neon backend with server-side access rules, Ed25519 JWT verification and private storage behind 10-minute presigned links; 97 tests and CI/CD that ships GitHub Pages, the Android APK and the Neon Function."
+        ]
+      },
       {
         title: "Blaze — Pizza Ordering & Delivery Platform",
         isLive: true,
