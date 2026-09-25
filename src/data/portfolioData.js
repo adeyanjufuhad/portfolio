@@ -559,6 +559,20 @@ export const portfolioData = {
         x: 770,
         y: 410,
         zIndex: 7
+      },
+      {
+        id: "item-fasttrack",
+        title: "FastTrack",
+        note: "Loan pre-qualification in 5 minutes",
+        color: "var(--ca-cyan)",
+        img: "/projects/fasttrack-result.jpg",
+        isLogo: false,
+        link: "/case-studies/fasttrack",
+        rotate: -2,
+        badgeRotate: 4,
+        x: 1080,
+        y: 400,
+        zIndex: 8
       }
     ]
   },
