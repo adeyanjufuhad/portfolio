@@ -176,7 +176,7 @@ export const portfolioData = {
         color: "var(--ca-ink)",
         textColor: "text-white",
         bgClass: "bg-[var(--ca-ink)]",
-        liveUrl: "https://adeyanjufuhad.github.io/FastTrack/",
+        liveUrl: "https://fastrack.name.ng/",
         githubUrl: "https://github.com/adeyanjufuhad/FastTrack",
         heroImages: [
           { type: "image", src: "/projects/fasttrack-result.jpg", alt: "FastTrack pre-qualification result next to a paper loan form" }
@@ -667,7 +667,7 @@ export const portfolioData = {
       {
         title: "FastTrack — Digital Onboarding & Loan Pre-qualification",
         isLive: true,
-        liveUrl: "https://adeyanjufuhad.github.io/FastTrack/",
+        liveUrl: "https://fastrack.name.ng/",
         githubUrl: "https://github.com/adeyanjufuhad/FastTrack",
         stack: "Flutter · Dart · Neon (Postgres, Auth, Storage, Functions) · Node.js / TypeScript · Gemini · GitHub Actions | 2026",
         highlights: [
