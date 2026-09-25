@@ -604,21 +604,21 @@ export const portfolioData = {
     githubUrl: "https://github.com/adeyanjufuhad",
     linkedin: "linkedin.com/in/adeyanjufuhad",
     linkedinUrl: "https://linkedin.com/in/adeyanjufuhad",
-    summary: "Fullstack developer with hands-on experience shipping production web applications across frontend and backend stacks. Completed internships at Arrowstack and Oasis, delivering three live products — Blaze, Kuza, and Trackr. Co-founded TaxBridge, Nigeria's AI-powered tax compliance middleware platform, serving as ML Engineer and Infrastructure Lead. Trained at Nupat Technologies (Best Graduating Student). Currently pursuing a B.Sc. in Computer Engineering at Obafemi Awolowo University.",
+    summary: "Fullstack developer with hands-on experience shipping production web applications across frontend and backend stacks. Completed internships at Arrowstack and Oasis, delivering three live products — Blaze, Kuza, and Trackr. Built FastTrack, a Flutter and Neon loan pre-qualification app for Nigerian lenders that pairs Gemini document extraction with a deterministic rules engine. Co-founded TaxBridge, Nigeria's AI-powered tax compliance middleware platform, serving as ML Engineer and Infrastructure Lead. Trained at Nupat Technologies (Best Graduating Student). Currently pursuing a B.Sc. in Computer Engineering at Obafemi Awolowo University.",
     technicalSkills: [
       {
         category: "Frontend",
-        skills: ["React", "Next.js", "JavaScript / TypeScript", "HTML5 / CSS3", "Tailwind CSS", "shadcn/ui", "React Native / Expo"],
+        skills: ["React", "Next.js", "JavaScript / TypeScript", "HTML5 / CSS3", "Tailwind CSS", "shadcn/ui", "React Native / Expo", "Flutter / Dart"],
         color: "var(--ca-yellow)"
       },
       {
         category: "Backend",
-        skills: ["Python / FastAPI", "Node.js / Express", "REST APIs", "Supabase", "MongoDB"],
+        skills: ["Python / FastAPI", "Node.js / Express", "REST APIs", "PostgreSQL", "Neon (Postgres, Auth, Storage, Functions)", "Supabase", "MongoDB"],
         color: "var(--ca-green)"
       },
       {
         category: "Tools",
-        skills: ["Git / GitHub", "Vercel", "Render", "EAS Build", "Socket.io", "Paystack", "OPay", "Razorpay", "Cloudinary", "node-cron"],
+        skills: ["Git / GitHub", "GitHub Actions CI/CD", "Google Gemini API", "Vercel", "Render", "EAS Build", "Socket.io", "Paystack", "OPay", "Razorpay", "Cloudinary", "node-cron"],
         color: "var(--ca-magenta)"
       },
       {
@@ -664,6 +664,18 @@ export const portfolioData = {
       }
     ],
     projects: [
+      {
+        title: "FastTrack — Digital Onboarding & Loan Pre-qualification",
+        isLive: true,
+        liveUrl: "https://adeyanjufuhad.github.io/FastTrack/",
+        githubUrl: "https://github.com/adeyanjufuhad/FastTrack",
+        stack: "Flutter · Dart · Neon (Postgres, Auth, Storage, Functions) · Node.js / TypeScript · Gemini · GitHub Actions | 2026",
+        highlights: [
+          "Five-minute applicant flow (sandbox BVN/NIN check, ID and statement upload or bank-SMS paste, e-signature) that returns a pre-qualified amount and tier; officer dashboard with a scored file and approve / more-info / decline actions.",
+          "Gemini extracts income and spending from documents while a deterministic rules engine sets the amount, so the AI never decides; a model-fallback chain keeps scoring up, with results in about 3 seconds.",
+          "Neon backend with server-side access rules, Ed25519 JWT verification and private storage behind 10-minute presigned links; 97 tests and CI/CD that ships GitHub Pages, the Android APK and the Neon Function."
+        ]
+      },
       {
         title: "Blaze — Pizza Ordering & Delivery Platform",
         isLive: true,
