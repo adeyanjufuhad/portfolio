@@ -660,7 +660,7 @@ export const portfolioData = {
     githubUrl: "https://github.com/adeyanjufuhad",
     linkedin: "linkedin.com/in/adeyanjufuhad",
     linkedinUrl: "https://linkedin.com/in/adeyanjufuhad",
-    summary: "Fullstack developer with hands-on experience shipping production web and mobile applications across frontend and backend stacks. Completed internships at Arrowstack and Oasis, delivering three live products — Blaze, Kuza, and Trackr. Built FastTrack, a Flutter and Neon loan pre-qualification app for Nigerian lenders that pairs Gemini document extraction with a deterministic rules engine. Co-founded TaxBridge, Nigeria's AI-powered tax compliance middleware platform, serving as ML Engineer and Infrastructure Lead. Trained at Nupat Technologies (Best Graduating Student). Currently pursuing a B.Sc. in Computer Engineering at Obafemi Awolowo University.",
+    summary: "Fullstack developer with hands-on experience shipping production web and mobile applications across frontend and backend stacks. Completed internships at Arrowstack and Oasis, delivering three live products — Blaze, Kuza, and Trackr. Built FastTrack, a Flutter and Neon loan pre-qualification app for Nigerian lenders that pairs Gemini document extraction with a deterministic rules engine, and CheckAm, a free scam checker for Nigerian messages and links that explains its findings in English and Pidgin. Co-founded TaxBridge, Nigeria's AI-powered tax compliance middleware platform, serving as ML Engineer and Infrastructure Lead. Trained at Nupat Technologies (Best Graduating Student). Currently pursuing a B.Sc. in Computer Engineering at Obafemi Awolowo University.",
     technicalSkills: [
       {
         category: "Frontend",
