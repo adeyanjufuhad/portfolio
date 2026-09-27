@@ -165,8 +165,50 @@ export const portfolioData = {
     relatedTitle: "more projects",
     items: [
       {
-        slug: "fasttrack",
+        slug: "checkam",
         num: "01",
+        featured: true,
+        title: "CheckAm",
+        subtitle: "Scam Checker for Nigerian Messages & Links",
+        description: "A free scam checker for Nigerian messages, links and screenshots. It explains what looks wrong, what it could verify and how to confirm it yourself, in plain English or Nigerian Pidgin.",
+        category: "Security",
+        tags: ["JavaScript", "PWA", "Tesseract.js", "Cloudflare Pages", "Vercel", "Groq", "Workers AI", "Node.js"],
+        color: "var(--ca-magenta)",
+        textColor: "text-white",
+        bgClass: "bg-[var(--ca-magenta)]",
+        liveUrl: "https://check-am-five.vercel.app",
+        githubUrl: "https://github.com/adeyanjufuhad/CheckAm",
+        heroImages: [
+          { type: "image", src: "/projects/checkam-home.jpg", alt: "CheckAm home screen with a message box, screenshot upload and English/Pidgin toggle" }
+        ],
+        facts: [
+          { label: "Role", value: "Solo Full Stack Engineer", color: "var(--ca-cyan)", rotate: "-rotate-2", clip: "ca-clip-blob-1" },
+          { label: "Timeline", value: "Weekend Build", color: "var(--ca-yellow-soft)", rotate: "rotate-2", clip: "ca-clip-blob-2" },
+          { label: "Year", value: "2026", color: "var(--ca-purple)", rotate: "rotate-1", clip: "ca-clip-blob-3" }
+        ],
+        story: {
+          problem: {
+            description: "NIBSS recorded ₦25.85 billion in digital-payment fraud losses in 2025, and most of it starts with a message: a fake job fee, a \"new number\" request, a BVN-update link. Global scam checkers don't know Nigerian banks, .gov.ng or Pidgin, and they show a green tick for any new scam site that isn't on a blocklist yet.",
+            media: []
+          },
+          solution: {
+            description: "Built an installable, framework-free web app whose rules engine runs on the phone: 31 rules for local scam scripts and 59 official Nigerian organisations to catch lookalike websites, with every finding explained in English and Pidgin. Screenshots are read on-device with Tesseract.js, or shared straight from WhatsApp. Only links go to a small serverless function for domain age, Safe Browsing, URLhaus and short-link checks. An optional AI check (Groq, with Cloudflare Workers AI as backup) can only raise a warning, never call a message safe.",
+            media: []
+          },
+          result: {
+            description: "A live app that deliberately has no \"safe\" result: it shows what looks suspicious, what it checked, what it can't know and how to verify through an official channel, with one-tap sharing to family on WhatsApp. It runs on free Cloudflare or Vercel tiers and keeps messages private by default.",
+            facts: [
+              { label: "Scam types", value: "44", desc: "Real-world scams caught in the test corpus", type: "count", color: "var(--ca-cyan)", rotate: "-rotate-2" },
+              { label: "Tests", value: "108", desc: "Across the rules engine and scam corpus", type: "count", color: "var(--ca-yellow-soft)", rotate: "rotate-2" },
+              { label: "Languages", value: "English + Pidgin", desc: "Every finding, tip and button", type: "text", color: "var(--ca-purple)", rotate: "rotate-1" }
+            ],
+            media: []
+          }
+        }
+      },
+      {
+        slug: "fasttrack",
+        num: "02",
         featured: true,
         title: "FastTrack",
         subtitle: "Digital Onboarding & Loan Pre-qualification",
@@ -208,7 +250,7 @@ export const portfolioData = {
       },
       {
         slug: "blaze",
-        num: "02",
+        num: "03",
         featured: true,
         title: "Blaze",
         subtitle: "Wood-Fired Artisanal Pizza Ordering Platform",
@@ -250,7 +292,7 @@ export const portfolioData = {
       },
       {
         slug: "kuza-store",
-        num: "03",
+        num: "04",
         featured: true,
         title: "Kuza Stores",
         subtitle: "Monochrome Streetwear E-Commerce Experience",
@@ -292,7 +334,7 @@ export const portfolioData = {
       },
       {
         slug: "luxe-estate",
-        num: "04",
+        num: "05",
         featured: false,
         title: "Luxe Estate",
         subtitle: "Luxury UK Real Estate Discovery & Property Portal",
@@ -334,7 +376,7 @@ export const portfolioData = {
       },
       {
         slug: "agrofinis",
-        num: "05",
+        num: "06",
         featured: false,
         title: "AgroFinis",
         subtitle: "All-in-One Agri-Platform & Market Intelligence",
@@ -376,7 +418,7 @@ export const portfolioData = {
       },
       {
         slug: "trackr",
-        num: "06",
+        num: "07",
         featured: false,
         title: "Trackr",
         subtitle: "Real-Time Logistics & Fleet Operations Dashboard",
@@ -418,7 +460,7 @@ export const portfolioData = {
       },
       {
         slug: "owo",
-        num: "07",
+        num: "08",
         featured: false,
         title: "Owo",
         subtitle: "Nigerian Fintech Wallet & Savings Onboarding",
@@ -573,6 +615,20 @@ export const portfolioData = {
         x: 1080,
         y: 400,
         zIndex: 8
+      },
+      {
+        id: "item-checkam",
+        title: "CheckAm",
+        note: "Check am before you click, pay or share",
+        color: "var(--ca-magenta)",
+        img: "/projects/checkam-home.jpg",
+        isLogo: false,
+        link: "/case-studies/checkam",
+        rotate: 3,
+        badgeRotate: -4,
+        x: 1250,
+        y: 70,
+        zIndex: 9
       }
     ]
   },
@@ -664,6 +720,18 @@ export const portfolioData = {
       }
     ],
     projects: [
+      {
+        title: "CheckAm — Scam Checker for Nigerian Messages & Links",
+        isLive: true,
+        liveUrl: "https://check-am-five.vercel.app",
+        githubUrl: "https://github.com/adeyanjufuhad/CheckAm",
+        stack: "JavaScript · PWA · Tesseract.js · Cloudflare Pages / Vercel Functions · Groq · Workers AI | 2026",
+        highlights: [
+          "Installable, framework-free web app that checks pasted messages, screenshots and links for Nigerian scam patterns and explains every finding in English or Nigerian Pidgin.",
+          "On-device rules engine (31 scam-script rules, 59 official organisations for lookalike-domain detection) keeps messages private; only links go to a serverless checker for domain age, Safe Browsing, URLhaus and short-link expansion.",
+          "Optional AI check (Groq with Cloudflare Workers AI fallback) guarded so it can only raise a warning, never say \"safe\"; 108 tests including a corpus of 44 real-world scam types."
+        ]
+      },
       {
         title: "FastTrack — Digital Onboarding & Loan Pre-qualification",
         isLive: true,
