@@ -1,3 +1,5 @@
+import { recentProjects } from './recentProjects.js';
+
 export const portfolioData = {
   name: "Adeyanju Fuhad",
   role: "Full Stack Developer",
@@ -164,6 +166,7 @@ export const portfolioData = {
     resultLabel: "the results",
     relatedTitle: "more projects",
     items: [
+      ...recentProjects,
       {
         slug: "checkam",
         num: "01",
@@ -836,3 +839,6 @@ export const portfolioData = {
     ]
   }
 };
+
+// Keep display numbers unique as the project collection grows.
+portfolioData.case_studies.items = portfolioData.case_studies.items.map((project, index) => ({ ...project, num: String(index + 1).padStart(2, "0") }));
