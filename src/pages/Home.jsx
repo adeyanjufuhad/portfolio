@@ -368,7 +368,7 @@ export default function Home() {
 
           {/* Sticky Stacked Project Cards */}
           <div className="flex flex-col gap-16 px-4 sm:px-8 lg:px-20 lg:gap-[12vh]">
-            {case_studies.items.map((project, idx) => {
+            {case_studies.items.filter(project => project.featured).slice(0, 6).map((project, idx) => {
               const isFirst = idx === 0;
               const tabMarginLeft = isFirst ? '0' : `min(calc(${idx * 21}% - 72px), calc(100% - 340px))`;
               const tabClipClass = isFirst
@@ -463,6 +463,8 @@ export default function Home() {
             })}
           </div>
         </section>
+
+        <div className="px-4 pb-20 text-center"><Link to="/case-studies" className="ca-mono inline-flex min-h-12 items-center border-2 border-[var(--ca-ink)] bg-[var(--ca-yellow)] px-6 py-3 text-sm font-bold uppercase tracking-widest shadow-[4px_4px_0_var(--ca-ink)]">Explore all {case_studies.items.length} projects ↗</Link></div>
 
         {/* REUSABLE CONTACT SECTION */}
         <ContactSection />

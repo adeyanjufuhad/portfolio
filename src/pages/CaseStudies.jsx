@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import { portfolioData } from '../data/portfolioData';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
@@ -7,6 +7,14 @@ import { StaggerText, Reveal } from '../components/motion';
 
 export default function CaseStudies() {
   const { case_studies } = portfolioData;
+  const [params, setParams] = useSearchParams();
+  const query = params.get('q') || '';
+  const category = params.get('category') || '';
+  const categories = [...new Set(case_studies.items.map(project => project.category))].sort();
+  const projects = case_studies.items.filter(project => (!category || project.category === category) && [project.title, project.subtitle, project.description, ...project.tags].join(' ').toLowerCase().includes(query.trim().toLowerCase()));
+  function updateFilter(key, value) {
+    setParams(current => { const next = new URLSearchParams(current); value ? next.set(key, value) : next.delete(key); return next; }, { replace: true });
+  }
 
   return (
     <div className="t-creative-artsy min-h-screen">
@@ -26,9 +34,19 @@ export default function CaseStudies() {
           </span>
         </div>
 
+        <form role="search" className="mb-12 grid gap-5 border-y-2 border-[var(--ca-ink)] py-6 sm:grid-cols-[1fr_240px]" onSubmit={event => event.preventDefault()}>
+          <label className="ca-mono text-xs font-bold uppercase tracking-widest">Search projects
+            <input type="search" name="q" value={query} onChange={event => updateFilter('q', event.target.value)} placeholder="Name, technology, or idea" className="mt-3 block min-h-12 w-full border-2 border-[var(--ca-ink)] bg-white px-4 text-base font-normal normal-case tracking-normal" />
+          </label>
+          <label className="ca-mono text-xs font-bold uppercase tracking-widest">Category
+            <select name="category" value={category} onChange={event => updateFilter('category', event.target.value)} className="mt-3 block min-h-12 w-full border-2 border-[var(--ca-ink)] bg-white px-3 text-base font-normal normal-case tracking-normal"><option value="">All categories</option>{categories.map(value => <option key={value} value={value}>{value}</option>)}</select>
+          </label>
+          <p className="ca-mono text-xs sm:col-span-2" role="status">Showing {projects.length} of {case_studies.items.length} projects</p>
+        </form>
+        {projects.length === 0 && <div className="py-16 text-center"><p>No projects match these filters.</p><button type="button" onClick={() => setParams({})} className="mt-5 min-h-12 border-2 border-[var(--ca-ink)] bg-[var(--ca-yellow)] px-5">Clear filters</button></div>}
         {/* 2-Column Projects Grid matching reference website */}
         <div className="grid grid-cols-1 gap-x-10 gap-y-20 sm:grid-cols-2">
-          {case_studies.items.map((project, idx) => {
+          {projects.map((project, idx) => {
             const isLogo = project.heroImages[0]?.src.includes('logo');
 
             return (
@@ -49,6 +67,7 @@ export default function CaseStudies() {
                           <div className={`relative overflow-hidden aspect-[16/9] w-full flex items-center justify-center ${isLogo ? 'bg-[#141416] p-4' : 'bg-white'}`}>
                             <img
                               src={project.heroImages[0].src}
+                              loading="lazy"
                               alt={project.title}
                               className={`h-full w-full ${isLogo ? 'object-contain' : 'object-cover'}`}
                             />
