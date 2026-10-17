@@ -4,7 +4,7 @@ import { portfolioData } from '../data/portfolioData';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 import { StaggerText, Reveal, Pop } from '../components/motion';
-import { Download, ExternalLink, Briefcase, GraduationCap, Award, Wrench, CheckCircle2, FileText, Phone, Mail, MapPin, Github, Linkedin, FolderGit2 } from 'lucide-react';
+import { Download, ExternalLink, Briefcase, GraduationCap, Award, Wrench, CheckCircle2, FileText, Phone, Mail, MapPin, Github, Linkedin, FolderGit2, Globe } from 'lucide-react';
 
 export default function Resume() {
   const { resume } = portfolioData;
@@ -43,6 +43,20 @@ export default function Resume() {
               <MapPin className="h-3.5 w-3.5 text-[var(--ca-ink)]" />
               {resume.location}
             </span>
+            {resume.portfolioUrl && (
+              <>
+                <span className="hidden sm:inline">•</span>
+                <a
+                  href={resume.portfolioUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 hover:text-[var(--ca-blue)] underline underline-offset-2 transition-colors"
+                >
+                  <Globe className="h-3.5 w-3.5" />
+                  {resume.portfolio}
+                </a>
+              </>
+            )}
             <span className="hidden sm:inline">•</span>
             <a
               href={resume.githubUrl}
@@ -73,13 +87,17 @@ export default function Resume() {
             </a>
             <span className="hidden sm:inline">•</span>
             <a
-              href={`tel:${resume.phone}`}
+              href={`tel:${resume.phone.replace(/\s/g, '')}`}
               className="inline-flex items-center gap-1.5 hover:text-[var(--ca-blue)] underline underline-offset-2 transition-colors"
             >
               <Phone className="h-3.5 w-3.5" />
               {resume.phone}
             </a>
           </div>
+
+          {resume.openTo && (
+            <p className="ca-hand mt-5 text-xl text-[var(--ca-ink)] sm:text-2xl">{resume.openTo}</p>
+          )}
 
           {/* Download and Print Actions */}
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
@@ -128,7 +146,7 @@ export default function Resume() {
                 </span>
               </div>
 
-              <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
                 {resume.technicalSkills.map((group, idx) => (
                   <div
                     key={group.category}

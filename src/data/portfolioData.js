@@ -673,34 +673,42 @@ export const portfolioData = {
     pdfUrl: "/Adeyanju_Fuhad_Resume.pdf",
     filename: "Adeyanju_Fuhad_Resume.pdf",
     name: "Adeyanju Fuhad",
-    headline: "Full Stack Developer & Founder — React · Next.js · Node.js · TypeScript · Python · Flutter",
+    headline: "Full Stack Developer · Founder of Sova & Edify",
     location: "Lagos, Nigeria",
-    phone: "07049294736",
+    phone: "+234 704 929 4736",
     email: "adeyanjufuhad@gmail.com",
+    portfolio: "adeyanjufuhad.vercel.app",
+    portfolioUrl: "https://adeyanjufuhad.vercel.app",
     github: "github.com/adeyanjufuhad",
     githubUrl: "https://github.com/adeyanjufuhad",
     linkedin: "linkedin.com/in/adeyanju-fuhad-206802320",
     linkedinUrl: "https://www.linkedin.com/in/adeyanju-fuhad-206802320/",
-    summary: "Full stack developer and founder who builds web and mobile products end to end, from Postgres triggers to the last button state. Founder of Sova, a tamper-evident record keeper for ajo and esusu savings circles that earned a place among 30 developers shortlisted to compete in Devcenter Hacktober 2026, and Edify, a study platform for Nigerian senior secondary students with 1,044+ practice questions. Shipped Blaze, Kuza and Trackr during internships at Oasis and Arrowstack, and built CheckAm and FastTrack, AI-assisted products where a rules engine, not the model, makes the final call. Best Graduating Student at Nupat Technologies; B.Sc. Computer Engineering in progress at Obafemi Awolowo University.",
+    openTo: "Open to full-time roles: remote (worldwide) or on-site / hybrid in Lagos · freelance & contract",
+    summary: "Full stack developer who ships web and mobile products end to end, from database design to the last UI state. Founder of two live products, Sova and Edify, and one of 30 developers shortlisted to compete in Devcenter Hacktober 2026. Works across React, Next.js, Node.js, Python (FastAPI), Flutter and PostgreSQL, and backs production work with automated tests and CI/CD.",
     technicalSkills: [
       {
-        category: "Frontend",
-        skills: ["React", "Next.js", "JavaScript / TypeScript", "HTML5 / CSS3", "Tailwind CSS", "shadcn/ui", "React Native / Expo", "Flutter / Dart"],
+        category: "Languages",
+        skills: ["TypeScript", "JavaScript", "Python", "Dart", "SQL", "HTML / CSS"],
         color: "var(--ca-yellow)"
       },
       {
-        category: "Backend",
-        skills: ["Python / FastAPI", "Node.js / Express", "REST APIs", "PostgreSQL", "Neon (Postgres, Auth, Storage, Functions)", "Supabase", "MongoDB"],
+        category: "Frontend & Mobile",
+        skills: ["React", "Next.js", "Tailwind CSS", "Flutter", "React Native (Expo)", "Framer Motion", "Accessibility (WCAG)"],
+        color: "var(--ca-cyan)"
+      },
+      {
+        category: "Backend & APIs",
+        skills: ["Node.js", "Express", "FastAPI", "REST APIs", "WebSockets (Socket.io)", "JWT Auth", "Payments (Razorpay, Paystack)"],
         color: "var(--ca-green)"
       },
       {
-        category: "Tools",
-        skills: ["Git / GitHub", "GitHub Actions CI/CD", "Google Gemini API", "Vercel", "Render", "EAS Build", "Socket.io", "Paystack", "OPay", "Razorpay", "Cloudinary", "node-cron"],
+        category: "Data & Cloud",
+        skills: ["PostgreSQL (Neon, Supabase)", "MongoDB", "Vercel", "Cloudflare Workers", "Render", "GitHub Actions CI/CD", "Git"],
         color: "var(--ca-magenta)"
       },
       {
-        category: "Concepts",
-        skills: ["JWT Authentication", "Real-time Systems", "Admin Dashboards", "Responsive Design", "WCAG Accessibility"],
+        category: "AI Integration",
+        skills: ["Google Gemini API", "Groq (Llama)", "Hugging Face Inference", "Rules-based AI guardrails"],
         color: "var(--ca-blue)"
       }
     ],
@@ -710,11 +718,12 @@ export const portfolioData = {
         role: "Founder & Lead Engineer",
         period: "2026 – Present",
         location: "Nigeria",
-        tagline: "Ajo & esusu savings circles, on record",
+        tagline: "Savings-circle records for ajo, esusu and adashe groups",
+        url: "https://sova.rumptycloud.app",
         highlights: [
-          "Built a Flutter app (web and Android) and a Node.js API on PostgreSQL 17, where joining, draws, payments, disputes and the ledger all run as database functions and triggers.",
-          "Designed a commit-reveal payout draw and a per-circle SHA-256 hash chain; a GitHub Actions job publishes chain checkpoints every 6 hours and a public page re-verifies any circle in the browser.",
-          "Shortlisted as one of 30 developers selected to compete in Devcenter Hacktober 2026 with Sova."
+          "Built and launched a Flutter app (web, Android) and Node.js API that keeps a tamper-evident record of savings circles.",
+          "Enforced business rules in PostgreSQL 17 functions and triggers; every change lands in a verifiable SHA-256 hash chain.",
+          "Automated Android releases and 6-hourly public ledger checkpoints with GitHub Actions."
         ]
       },
       {
@@ -722,10 +731,11 @@ export const portfolioData = {
         role: "Founder & Engineer",
         period: "2026 – Present",
         location: "Nigeria",
-        tagline: "Weekly lessons & exam practice for SS1–SS3",
+        tagline: "Exam-prep platform for SS1–SS3 students",
+        url: "https://edify-sigma-plum.vercel.app",
         highlights: [
-          "Built and launched a Next.js and Neon Postgres study platform with weekly notes, self-marking practice and timed CBT tests: 1,044+ practice questions and 44 lessons live, with plans from ₦1,000.",
-          "Designed a typed curriculum registry so adding a lesson updates the dashboard, lesson pages, \"up next\" links and the progress API with no route changes."
+          "Launched a paid study platform (plans from ₦1,000) with 1,044+ practice questions, 44 lessons and timed CBT tests.",
+          "Built on Next.js and Neon Postgres with a typed curriculum registry, so new lessons ship without route or API changes."
         ]
       },
       {
@@ -733,21 +743,21 @@ export const portfolioData = {
         role: "Frontend Developer Intern",
         period: "2026",
         location: "Remote",
-        tagline: "Product Internship",
+        tagline: "Product internship",
         highlights: [
-          "Delivered Kuza, a Next.js e-commerce storefront with accessible keyboard navigation and persistent cart logic.",
-          "Built Trackr, a logistics dashboard with Recharts analytics, sort/filter/pagination and an alerts centre."
+          "Delivered Kuza, a Next.js and TypeScript storefront with accessible keyboard navigation, persistent cart and checkout.",
+          "Built Trackr, a logistics dashboard with Recharts analytics, sortable and filterable tables, and an alerts centre."
         ]
       },
       {
         company: "Oasis",
-        role: "Fullstack Developer Intern",
+        role: "Full Stack Developer Intern",
         period: "2026",
         location: "Remote",
-        tagline: "Product Internship",
+        tagline: "Product internship",
         highlights: [
-          "Shipped Blaze, a full-stack pizza ordering platform with real-time order tracking via Socket.io and Razorpay payments.",
-          "Implemented JWT auth with email verification and password reset, Cloudinary image uploads and an admin inventory dashboard."
+          "Shipped Blaze, a MERN pizza-ordering platform with real-time order tracking over Socket.io and Razorpay payments.",
+          "Implemented JWT auth with email verification, Cloudinary uploads, and an admin dashboard with low-stock email alerts."
         ]
       }
     ],
@@ -757,23 +767,21 @@ export const portfolioData = {
         isLive: true,
         liveUrl: "https://check-am-five.vercel.app",
         githubUrl: "https://github.com/adeyanjufuhad/CheckAm",
-        stack: "JavaScript · PWA · Tesseract.js · Cloudflare Pages / Vercel Functions · Groq · Workers AI | 2026",
+        stack: "JavaScript · PWA · Tesseract.js · Serverless Functions · Groq",
         highlights: [
-          "Installable, framework-free web app that checks pasted messages, screenshots and links for Nigerian scam patterns and explains every finding in English or Nigerian Pidgin.",
-          "On-device rules engine (31 scam-script rules, 59 official organisations for lookalike-domain detection) keeps messages private; only links go to a serverless checker.",
-          "Optional AI check guarded so it can only raise a warning, never say \"safe\"; 108 tests including a corpus of 44 real-world scam types."
+          "Free app that flags scam messages, screenshots and links in English or Pidgin; an on-device rules engine keeps data private.",
+          "AI can only raise a warning, never mark a message safe; 108 automated tests cover 44 real-world scam types."
         ]
       },
       {
-        title: "FastTrack — Digital Onboarding & Loan Pre-qualification",
+        title: "FastTrack — Loan Onboarding & Pre-qualification",
         isLive: true,
         liveUrl: "https://fastrack.name.ng/",
         githubUrl: "https://github.com/adeyanjufuhad/FastTrack",
-        stack: "Flutter · Dart · Neon (Postgres, Auth, Storage, Functions) · Node.js / TypeScript · Gemini · GitHub Actions | 2026",
+        stack: "Flutter · Neon Postgres · Node.js / TypeScript · Gemini · GitHub Actions",
         highlights: [
-          "Five-minute applicant flow that returns a pre-qualified amount and tier, plus an officer dashboard with approve / more-info / decline actions.",
-          "Gemini extracts income and spending from documents while a deterministic rules engine sets the amount, with results in about 3 seconds.",
-          "Server-side access rules, Ed25519 JWT verification and private storage behind 10-minute presigned links; 97 tests and full CI/CD."
+          "Five-minute flow returns a pre-qualified loan amount in ~3s; Gemini extracts the figures, a deterministic rules engine decides.",
+          "Ed25519 JWT verification, presigned private storage, 97 automated tests, and CI/CD shipping web, Android and backend."
         ]
       },
       {
@@ -781,52 +789,19 @@ export const portfolioData = {
         isLive: true,
         liveUrl: "https://repospec.vercel.app",
         githubUrl: "https://github.com/adeyanjufuhad/RepoSpec",
-        stack: "Next.js · TypeScript · Static parsing · GitHub App · Vitest | 2026",
+        stack: "Next.js · TypeScript · Static parsing · GitHub App",
         highlights: [
-          "Extracts database models, API routes, exported types and architecture rules from any GitHub commit with static parsing, no AI model.",
-          "Token-weighted treemap, per-file toggles and a 100–20,000 token budget; exports .ai-context.md, .cursorrules or CLAUDE.md."
+          "Extracts models, routes, types and rules from any GitHub commit via static parsing into a token-budgeted context file."
         ]
       },
       {
-        title: "Big Apple Beauty — Wholesale Storefront with WhatsApp Checkout",
+        title: "Big Apple Beauty — Client Storefront with WhatsApp Checkout",
         isLive: true,
         liveUrl: "https://bigapplebeauty.store",
         githubUrl: "https://github.com/adeyanjufuhad/big-apple-world",
-        stack: "Next.js · Tailwind CSS · Neon Postgres · Cloudflare Workers | Client project, 2026",
+        stack: "Next.js · Neon Postgres · Cloudflare Workers",
         highlights: [
-          "Storefront and owner admin for a Lagos beauty wholesaler; checkout sends the cart to WhatsApp and logs a pending order.",
-          "Server-side price lookups, a restricted database role and privacy-friendly analytics, served from Cloudflare Workers on the client's domain."
-        ]
-      },
-      {
-        title: "Blaze — Pizza Ordering & Delivery Platform",
-        isLive: true,
-        liveUrl: "https://client-ten-psi-50.vercel.app",
-        githubUrl: "https://github.com/adeyanjufuhad/Blaze",
-        stack: "React · Node.js · Express · MongoDB · Socket.io · Razorpay | Oasis Internship",
-        highlights: [
-          "Full-stack food ordering platform with a 4-step custom pizza builder and real-time order status tracking via Socket.io.",
-          "Admin dashboard with inventory management and automated low-stock email alerts via node-cron."
-        ]
-      },
-      {
-        title: "Kuza — Streetwear E-Commerce Storefront",
-        isLive: true,
-        liveUrl: "https://kuza-store.vercel.app",
-        githubUrl: "https://github.com/adeyanjufuhad/kuza-store",
-        stack: "Next.js 14 · TypeScript · Tailwind CSS · shadcn/ui | Arrowstack Internship",
-        highlights: [
-          "Accessible storefront with product filters, sort, persistent cart and full checkout flow, plus loading, error and empty states."
-        ]
-      },
-      {
-        title: "AgroFinis — Agritech Platform",
-        isLive: true,
-        liveUrl: "https://agrofinis.com.ng",
-        githubUrl: "https://github.com/adeyanjufuhad/AgroFinis",
-        stack: "React · Supabase · FastAPI | 2026 – Present",
-        highlights: [
-          "Real-time weather data, AI crop advisory and commodity market listings for Nigerian farmers; listed on Orynth under ticker AGRF."
+          "Storefront and admin for a Lagos wholesaler on the client's own domain, with WhatsApp checkout and server-side pricing."
         ]
       }
     ],
@@ -834,7 +809,7 @@ export const portfolioData = {
       {
         institution: "Obafemi Awolowo University (OAU), Ile-Ife",
         degree: "B.Sc. Computer Engineering",
-        period: "In Progress"
+        period: "Expected 2030"
       }
     ],
     achievements: [
@@ -844,13 +819,8 @@ export const portfolioData = {
         year: "2026"
       },
       {
-        title: "Founder of Sova and Edify",
-        issuer: "Two products designed, built and launched end to end",
-        year: "2026"
-      },
-      {
         title: "Best Graduating Student",
-        issuer: "Nupat Technologies Fullstack Training Programme",
+        issuer: "Nupat Technologies Fullstack Software Training Programme",
         year: "2024"
       },
       {
@@ -861,8 +831,8 @@ export const portfolioData = {
     ],
     certifications: [
       {
-        name: "Fullstack Developer Training — Nupat Technologies, 2024",
-        issuer: "Best Graduating Student"
+        name: "Fullstack Software Engineering Programme — Nupat Technologies, 2024",
+        issuer: "Graduated as Best Graduating Student"
       }
     ]
   },
