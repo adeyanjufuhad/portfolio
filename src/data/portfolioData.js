@@ -160,13 +160,12 @@ export const portfolioData = {
   case_studies: {
     label: "explore my work!",
     title: "FEATURED WORKS",
-    description: "A handful of builds worth pausing on: real production platforms, systems, and open-source tools.",
+    description: "A handful of builds worth pausing on: live products, client sites and open-source tools, all shipped.",
     challengeLabel: "the challenge",
     approachLabel: "my approach",
     resultLabel: "the results",
     relatedTitle: "more projects",
     items: [
-      ...recentProjects,
       {
         slug: "checkam",
         num: "01",
@@ -251,6 +250,7 @@ export const portfolioData = {
           }
         }
       },
+      ...recentProjects,
       {
         slug: "blaze",
         num: "03",

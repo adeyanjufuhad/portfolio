@@ -141,7 +141,7 @@ export function SeeLensImage({ src, alt, isLogo, className, aspectClass = 'aspec
           <img
             src={src}
             alt={alt}
-            className={`h-full w-full ${isLogo ? 'object-contain' : 'object-cover'} ${className || ''}`}
+            className={`h-full w-full ${isLogo ? 'object-contain' : 'object-cover object-left-top'} ${className || ''}`}
           />
         </div>
       </div>
@@ -173,7 +173,7 @@ export function HomeProjectImage({ src, alt, isLogo, isYellowBg }) {
           src={src}
           alt={alt}
           className={`transition-transform duration-500 ${
-            isLogo ? 'max-h-full max-w-full object-contain' : 'h-full w-full object-cover'
+            isLogo ? 'max-h-full max-w-full object-contain' : 'h-full w-full object-cover object-left-top'
           }`}
         />
       </div>

@@ -1,802 +1,343 @@
-// Verified against public repository metadata, READMEs and manifests on 2026-10-13.
-// Covers are original typographic artwork, not application screenshots.
+// Recent builds, written from each repository's README, manifests and live site (October 2026).
+// Covers are screenshots of the deployed apps, except VeriFlow, which has no public deployment.
+// Result figures come from the README or the live product; nothing here is an invented metric.
+
+const FACT_STYLES = [
+  { color: "var(--ca-cyan)", rotate: "-rotate-2", clip: "ca-clip-blob-1" },
+  { color: "var(--ca-yellow-soft)", rotate: "rotate-2", clip: "ca-clip-blob-2" },
+  { color: "var(--ca-purple)", rotate: "rotate-1", clip: "ca-clip-blob-3" },
+];
+
+function project({ slug, cover, alt, facts, problem, solution, result, results, ...rest }) {
+  return {
+    slug,
+    textColor: "text-white",
+    bgClass: "",
+    ...rest,
+    heroImages: [{ type: "image", src: cover || `/projects/recent/${slug}.webp`, alt }],
+    facts: facts.map(([label, value], i) => ({ label, value, ...FACT_STYLES[i % 3] })),
+    story: {
+      problem: { description: problem, media: [] },
+      solution: { description: solution, media: [] },
+      result: {
+        description: result,
+        facts: results.map(([value, label, desc], i) => {
+          const { color, rotate } = FACT_STYLES[i % 3];
+          return { label, value, desc, type: "text", color, rotate };
+        }),
+        media: [],
+      },
+    },
+  };
+}
+
 export const recentProjects = [
-  {
-    "slug": "repospec",
-    "title": "RepoSpec",
-    "subtitle": "GitHub contracts for AI coding context",
-    "description": "Turns a GitHub snapshot into inspectable schemas, routes, types, and rules within a token budget.",
-    "category": "Developer tools",
-    "tags": [
-      "Next.js",
-      "TypeScript",
-      "Static AST parsing"
+  project({
+    slug: "sova",
+    title: "Sova",
+    subtitle: "Ajo & Esusu Savings Circles, On Record",
+    description: "Sova keeps the record for ajo, esusu and adashe savings circles: who joined, who collects when, who has paid and who has confirmed, on a tamper-evident ledger anyone can verify. Sova never touches the money.",
+    category: "Fintech",
+    tags: ["Flutter", "Dart", "Node.js", "PostgreSQL 17", "Next.js", "GitHub Actions"],
+    featured: true,
+    color: "var(--ca-blue)",
+    liveUrl: "https://sova.rumptycloud.app",
+    githubUrl: "https://github.com/adeyanjufuhad/Sova",
+    alt: "Sova landing page: 'Your ajo, on record.' beside a phone showing a savings circle's payments",
+    facts: [["Role", "Full Stack Engineer"], ["Built for", "Devcenter Hacktober"], ["Year", "2026"]],
+    problem: "Millions of Nigerians save through ajo and esusu circles, and they run on trust and memory. When a member says \"I sent it\", collects early and stops paying, or disputes the payout order, there is no shared record to settle it. Apps that hold the pot ask circles to hand their money to a stranger.",
+    solution: "Built a Flutter app (web and Android) on a Node.js API where Sova keeps the record and never the money. The payout order is drawn by commit-reveal, so anyone can recompute it. Members mark \"I sent it\" with a bank reference, the collector confirms, and shortfalls open disputes the circle votes on. Database triggers write every change into a per-circle SHA-256 hash chain, and a GitHub Actions job publishes chain checkpoints every 6 hours.",
+    result: "Live on web and Android, with a one-tap private demo for every visitor and a public verify page that rechecks a circle's whole chain and draw in the browser. Members also build a Sova Score from on-time payments that they can share.",
+    results: [
+      ["Commit-reveal", "Fair draw", "Payout order anyone can recompute"],
+      ["Every 6h", "Ledger anchors", "Chain heads published to a public branch"],
+      ["Web + Android", "Platforms", "Flutter web app and CI-built APK"],
     ],
-    "featured": true,
-    "liveUrl": "https://repospec.vercel.app",
-    "githubUrl": "https://github.com/adeyanjufuhad/RepoSpec",
-    "repositoryCreated": "2026-10-13",
-    "color": "var(--ca-blue)",
-    "textColor": "text-white",
-    "bgClass": "",
-    "heroImages": [
-      {
-        "type": "image",
-        "src": "/projects/recent/repospec-cover.svg",
-        "alt": "RepoSpec illustrated project cover"
-      }
+  }),
+  project({
+    slug: "repospec",
+    title: "RepoSpec",
+    subtitle: "Grounded Repo Context for AI Coding Assistants",
+    description: "Point RepoSpec at a GitHub repo and it extracts the models, API routes, exported types and architecture rules your code actually defines, then packs them into a reviewable context file within a token budget.",
+    category: "Developer Tools",
+    tags: ["Next.js", "TypeScript", "Static Parsing", "GitHub App", "Vitest"],
+    featured: true,
+    color: "var(--ca-yellow)",
+    liveUrl: "https://repospec.vercel.app",
+    githubUrl: "https://github.com/adeyanjufuhad/RepoSpec",
+    alt: "RepoSpec landing page: 'Your code. Your context. Less guesswork.' next to extracted contracts",
+    facts: [["Role", "Full Stack Engineer"], ["Type", "Developer Tool"], ["Year", "2026"]],
+    problem: "Coding assistants confidently use a field, route or type your project never defined. Pasting source files into every chat burns the context window and goes stale the moment the code changes.",
+    solution: "Built a Next.js workspace that resolves any branch, tag or commit to a SHA, downloads that snapshot and extracts contracts with static parsing, not an AI model. You inspect the results in a token-weighted treemap, toggle files and sections and recompute without downloading again. Private repos connect through GitHub App sign-in, and a companion CLI and local dashboard handle filesystem scanning and watch mode.",
+    result: "A live, stateless workspace: analyse a public repo without signing in, then copy the context or download it as .ai-context.md, .cursorrules or CLAUDE.md, ready to hand to an assistant.",
+    results: [
+      ["100–20k", "Token budget", "Context trimmed to the budget you set"],
+      ["3 formats", "Exports", ".ai-context.md, .cursorrules, CLAUDE.md"],
+      ["0 LLM calls", "Extraction", "Static parsing, fully reproducible"],
     ],
-    "facts": [
-      {
-        "label": "Category",
-        "value": "Developer tools",
-        "color": "var(--ca-cyan)",
-        "rotate": "-rotate-2",
-        "clip": "ca-clip-blob-1"
-      },
-      {
-        "label": "Repository added",
-        "value": "2026-10-13",
-        "color": "var(--ca-yellow-soft)",
-        "rotate": "rotate-2",
-        "clip": "ca-clip-blob-2"
-      }
+  }),
+  project({
+    slug: "big-apple-world",
+    title: "Big Apple Beauty",
+    subtitle: "Wholesale Beauty Store with WhatsApp Checkout",
+    description: "A storefront and owner back office for a Balogun Market beauty and spa wholesaler. The cart checks out on WhatsApp, the way the shop's customers already buy, and every order is logged for the owner.",
+    category: "E-Commerce",
+    tags: ["Next.js", "Tailwind CSS", "Neon Postgres", "Cloudflare Workers", "Motion"],
+    featured: true,
+    color: "var(--ca-magenta)",
+    liveUrl: "https://bigapplebeauty.store",
+    githubUrl: "https://github.com/adeyanjufuhad/big-apple-world",
+    alt: "Big Apple Beauty storefront: 'Everything your salon & spa needs, at wholesale prices.'",
+    facts: [["Role", "Full Stack Engineer"], ["Client", "AC Big Apple, Lagos"], ["Year", "2026"]],
+    problem: "A Lagos wholesaler with customers across salons, spas and beauty schools was taking every order by chat and phone. They needed a real catalogue online without forcing buyers through a payment flow they don't trust.",
+    solution: "Built two Next.js apps on Neon Postgres: a storefront and an admin where the owner manages products, prices, stock and photos. Checkout formats the cart as a WhatsApp message and saves it as a pending order with a reference like BA-7K2QXM. Prices are always looked up on the server, never trusted from the browser, and the storefront connects through a restricted database role.",
+    result: "Live on the client's own domain, served from Cloudflare Workers with KV caching. The owner sees orders and privacy-friendly analytics (page views, add-to-carts, WhatsApp clicks) with no names or IP addresses stored.",
+    results: [
+      ["2 apps", "Storefront + Admin", "Owner runs the catalogue without code"],
+      ["WhatsApp", "Checkout", "Orders land where customers already chat"],
+      ["Edge", "Hosting", "Cloudflare Workers on a custom domain"],
     ],
-    "story": {
-      "problem": {
-        "description": "AI coding assistants need the actual contracts behind a project rather than plausible guesses.",
-        "media": []
-      },
-      "solution": {
-        "description": "Implemented bounded GitHub archive ingestion, static contract extraction, file selection, token budgeting, and portable Markdown exports.",
-        "media": []
-      },
-      "result": {
-        "description": "The public workspace and parser are implemented. Private repository sign-in requires GitHub App credentials.",
-        "facts": [],
-        "media": []
-      }
-    }
-  },
-  {
-    "slug": "csca-90plus",
-    "title": "CSCA 90+",
-    "subtitle": "Math and physics exam preparation",
-    "description": "A CSCA preparation website bringing mathematics and physics notes, drills, past papers, and mocks into one study space.",
-    "category": "Education",
-    "tags": [
-      "Next.js",
-      "TypeScript",
-      "KaTeX"
+  }),
+  project({
+    slug: "paraval",
+    title: "Paraval",
+    subtitle: "Human Data & Evaluation for African-Language AI",
+    description: "The product site for Paraval, a data and evaluation company that pays native speakers to test and teach AI in Yoruba, Hausa, Igbo and Pidgin, with consent on every item.",
+    category: "AI",
+    tags: ["Next.js", "TypeScript", "Three.js", "Supabase", "Motion"],
+    featured: true,
+    color: "var(--ca-green)",
+    liveUrl: "https://paraval-lilac.vercel.app",
+    githubUrl: "https://github.com/adeyanjufuhad/paraval",
+    alt: "Paraval landing page: 'AI that sees the whole world.' above a chrome orbit ring",
+    facts: [["Role", "Full Stack Engineer"], ["Focus", "AI Evaluation"], ["Year", "2026"]],
+    problem: "AI models are trained mostly on English, Western data, so they quietly fail on Nigerian languages, prices, laws and everyday life, and their makers have no trusted way to measure it. Meanwhile the people who could fix it have no fair way to earn from that knowledge.",
+    solution: "Designed and built the brand and website: the name blends parallax and evaluation, and the logo is a parallax diagram. A Three.js chrome orbit leads into sections for AI teams, contributors and the upcoming Paraval Benchmark, with two waitlist forms (contributors and AI teams) saved to Supabase behind row-level security.",
+    result: "A live site that explains the company to AI labs and contributors at once, and collects waitlist sign-ups ahead of the first benchmark.",
+    results: [
+      ["4 languages", "Launch set", "Yoruba, Hausa, Igbo and Pidgin"],
+      ["48 hours", "Contributor pay", "The promise the product is built around"],
+      ["Consent", "On every item", "Data that's safe to train on"],
     ],
-    "featured": false,
-    "liveUrl": "https://csca-90plus.vercel.app",
-    "githubUrl": "https://github.com/adeyanjufuhad/csca-90plus",
-    "repositoryCreated": "2026-10-09",
-    "color": "var(--ca-green)",
-    "textColor": "text-white",
-    "bgClass": "",
-    "heroImages": [
-      {
-        "type": "image",
-        "src": "/projects/recent/csca-90plus-cover.svg",
-        "alt": "CSCA 90+ illustrated project cover"
-      }
+  }),
+  project({
+    slug: "edify",
+    title: "Edify",
+    subtitle: "Weekly Lessons & Exam Practice for SS1–SS3",
+    description: "A study platform for Nigerian senior secondary students: clear weekly notes, quick exam summaries, self-marking practice and timed CBT tests, with each learner's progress and notes saved to their account.",
+    category: "EdTech",
+    tags: ["Next.js", "TypeScript", "Neon Postgres", "Tailwind CSS"],
+    featured: false,
+    color: "var(--ca-orange)",
+    liveUrl: "https://edify-sigma-plum.vercel.app",
+    githubUrl: "https://github.com/adeyanjufuhad/Edify",
+    alt: "Edify landing page: 'Study smarter, one week at a time.' with an owl mascot",
+    facts: [["Role", "Full Stack Engineer"], ["Audience", "SS1–SS3 Students"], ["Year", "2026"]],
+    problem: "Senior secondary students juggle a dozen subjects with textbooks that don't tell them what to study this week or what the exam will actually ask.",
+    solution: "Built a Next.js App Router platform around a typed curriculum registry: every term, subject and week maps to a lesson file, so adding a lesson automatically updates the dashboard, the lesson page, the \"up next\" link and the progress API. Progress and notes are stored in Neon Postgres per learner.",
+    result: "Live with SS1 lessons published and SS2–SS3 on the way, plans from ₦1,000 and family accounts, and it works on any phone.",
+    results: [
+      ["1,044+", "Practice questions", "Every one with a worked answer"],
+      ["44", "Lessons", "Ready to study today"],
+      ["434", "Exam questions", "Likely questions, answered"],
     ],
-    "facts": [
-      {
-        "label": "Category",
-        "value": "Education",
-        "color": "var(--ca-cyan)",
-        "rotate": "-rotate-2",
-        "clip": "ca-clip-blob-1"
-      },
-      {
-        "label": "Repository added",
-        "value": "2026-10-09",
-        "color": "var(--ca-yellow-soft)",
-        "rotate": "rotate-2",
-        "clip": "ca-clip-blob-2"
-      }
+  }),
+  project({
+    slug: "devmind",
+    title: "DevMind",
+    subtitle: "Multi-Model AI Pipeline for Broken Code",
+    description: "Paste broken code and DevMind runs a five-stage, multi-model pipeline that finds the root cause, fixes it, writes tests, documents it and explains it, streamed back live.",
+    category: "Developer Tools",
+    tags: ["React", "FastAPI", "Python", "Groq", "Hugging Face", "SSE"],
+    featured: false,
+    color: "var(--ca-blue)",
+    liveUrl: "https://frontend-weld-six-36.vercel.app",
+    githubUrl: "https://github.com/adeyanjufuhad/DevMind",
+    alt: "DevMind workspace with a source-code editor and the five pipeline stages",
+    facts: [["Role", "Full Stack Engineer"], ["Type", "AI Developer Tool"], ["Year", "2026"]],
+    problem: "Debugging is several jobs in a row: find the cause, fix it, prove the fix with tests, document it, and explain it to whoever touches it next. Doing all of that for every bug is slow.",
+    solution: "Built a FastAPI backend that runs five stages (diagnose, fix, test, document, explain) across Groq's Llama 3.3 70B and the Hugging Face Inference API, with fallbacks and retry handling. Results stream to a React interface over server-sent events, and tests are generated for the language's own framework: pytest, Jest, Go test or cargo test.",
+    result: "A stateless tool: code is never stored or written to disk, and each stage appears as soon as it finishes, so you can read the diagnosis while the tests are still being written.",
+    results: [
+      ["5 stages", "Pipeline", "Diagnose, fix, test, document, explain"],
+      ["Live", "Streaming", "Server-sent events per stage"],
+      ["Zero", "Retention", "Code never stored or persisted"],
     ],
-    "story": {
-      "problem": {
-        "description": "Exam preparation benefits from a focused place to review material and practice questions.",
-        "media": []
-      },
-      "solution": {
-        "description": "Built a Next.js study interface with Markdown content and mathematical notation rendered through KaTeX.",
-        "media": []
-      },
-      "result": {
-        "description": "Published a focused preparation website with structured study material and mathematical notation.",
-        "facts": [],
-        "media": []
-      }
-    }
-  },
-  {
-    "slug": "edify",
-    "title": "Edify",
-    "subtitle": "A personal SS1 study space",
-    "description": "An SS1 learning website with curriculum navigation, published chemistry lessons, and learner-specific progress and notes.",
-    "category": "Education",
-    "tags": [
-      "Next.js",
-      "TypeScript",
-      "Neon PostgreSQL"
+  }),
+  project({
+    slug: "tokenscope",
+    title: "TokenScope",
+    subtitle: "Risk Intelligence for Solana Tokens",
+    description: "Paste a Solana token address and TokenScope returns a due-diligence report across six risk pillars in seconds, tuned to avoid the false alarms generic memecoin scanners raise.",
+    category: "Web3",
+    tags: ["React", "FastAPI", "Solana RPC", "Google Gemini", "Vite"],
+    featured: false,
+    color: "var(--ca-ink)",
+    liveUrl: "https://tokenscope-eta.vercel.app",
+    githubUrl: "https://github.com/adeyanjufuhad/TokenScope",
+    alt: "TokenScope: 'Audit any Solana token in seconds.' beside a sample risk score",
+    facts: [["Role", "Full Stack Engineer"], ["Chain", "Solana"], ["Year", "2026"]],
+    problem: "Most token scanners flag USDC as a honeypot because it has freeze authority, and mistake exchange cold wallets for insider whales. Investors either ignore the warnings or stop trusting the tool.",
+    solution: "Built a FastAPI engine that classifies the asset before scoring it, waiving penalties that are normal for regulated stablecoins and wrapped assets. It resolves the largest token accounts to their real owners and tags known exchanges and liquidity vaults (Binance, Coinbase, Raydium, Orca, Meteora and more) so they don't count as insider concentration. Gemini then writes the findings up in plain English.",
+    result: "A live React app that turns a mint address into a scored report on security, holder concentration, market health and AI risk synthesis.",
+    results: [
+      ["6 pillars", "Risk model", "From mint authority to liquidity"],
+      ["Seconds", "Report time", "Paste an address, get a full audit"],
+      ["Fewer false flags", "Asset-aware", "Stablecoins and vaults handled correctly"],
     ],
-    "featured": true,
-    "liveUrl": "https://edify-sigma-plum.vercel.app",
-    "githubUrl": "https://github.com/adeyanjufuhad/Edify",
-    "repositoryCreated": "2026-10-08",
-    "color": "var(--ca-orange)",
-    "textColor": "text-white",
-    "bgClass": "",
-    "heroImages": [
-      {
-        "type": "image",
-        "src": "/projects/recent/edify-cover.svg",
-        "alt": "Edify illustrated project cover"
-      }
+  }),
+  project({
+    slug: "university-duel",
+    title: "University Duel",
+    subtitle: "Buzzer Drills for Nigeria's Campus Quiz Show",
+    description: "A practice arena for students preparing for University Duel: timed buzzer drills, spoken answers, pass-and-play duels and two-device online matches with millisecond lockouts.",
+    category: "EdTech",
+    tags: ["React", "TypeScript", "Vite", "Web Speech API", "WebSockets"],
+    featured: false,
+    color: "var(--ca-magenta)",
+    liveUrl: "https://university-duel.vercel.app",
+    githubUrl: "https://github.com/adeyanjufuhad/University-Duel",
+    alt: "University Duel welcome screen with the championship rules",
+    facts: [["Role", "Full Stack Engineer"], ["Type", "Quiz Trainer"], ["Year", "2026"]],
+    problem: "On stage, knowing the answer isn't enough: contestants have to buzz first and say it clearly under a countdown. Nothing let students rehearse those exact conditions.",
+    solution: "Built three modes: a solo drill filtered by category, difficulty and countdown, a pass-and-play duel on one keyboard (A vs L) with rebound steals, and a two-device online duel paired by room code over secure WebSockets. Answers are spoken through browser speech recognition and matched to the expected answer, with typing as a fallback.",
+    result: "A live trainer with post-match analytics (points, buzzes won, average reaction time) and a high score that persists between sessions.",
+    results: [
+      ["3 modes", "Gameplay", "Solo, pass-and-play and online duel"],
+      ["Voice", "Answering", "Speak answers like on stage"],
+      ["100 pts", "Max per question", "Faster correct answers score higher"],
     ],
-    "facts": [
-      {
-        "label": "Category",
-        "value": "Education",
-        "color": "var(--ca-cyan)",
-        "rotate": "-rotate-2",
-        "clip": "ca-clip-blob-1"
-      },
-      {
-        "label": "Repository added",
-        "value": "2026-10-08",
-        "color": "var(--ca-yellow-soft)",
-        "rotate": "rotate-2",
-        "clip": "ca-clip-blob-2"
-      }
+  }),
+  project({
+    slug: "locate-am",
+    title: "LocateAm",
+    subtitle: "Geocoding for Landmark-Style Nigerian Addresses",
+    description: "LocateAm reads directions like \"3rd gate after the market, Ikeja\", ranks likely landmarks on a map and lets a person confirm the exact pin. When it can't locate a place reliably, it says so instead of inventing coordinates.",
+    category: "Maps & Geo",
+    tags: ["React", "FastAPI", "PostGIS", "Google Maps", "OpenStreetMap"],
+    featured: false,
+    color: "var(--ca-green)",
+    liveUrl: "https://locate-am.vercel.app",
+    githubUrl: "https://github.com/adeyanjufuhad/Locate-Am",
+    alt: "LocateAm: 'Find the place behind the address.' with a search panel and map",
+    facts: [["Role", "Full Stack Engineer"], ["Region", "Lagos first"], ["Year", "2026"]],
+    problem: "Nigerian addresses are often landmarks and turns, not street numbers. Standard geocoders either fail or return a confident pin in the wrong place, and riders pay for that in wasted trips.",
+    solution: "Built a FastAPI service with a rules parser for Nigerian shorthand, fuzzy matching with pg_trgm and soft area ranking over a PostGIS place database, plus an OpenStreetMap importer with deduplication and import reports. The React interface shows ranked candidates and a movable confirmation pin, and submitted pins wait in a review queue before anyone trusts them.",
+    result: "A working end-to-end MVP with parser, matcher, API and browser tests, and a PostGIS integration test running in GitHub Actions. A dry run over an Ikeja OpenStreetMap snapshot accepted 704 of 708 places.",
+    results: [
+      ["704 / 708", "Ikeja places", "Usable in the OSM dry-run import"],
+      ["Rules only", "No LLM", "Every match can be explained"],
+      ["Human pin", "Confirmation", "People confirm the final location"],
     ],
-    "story": {
-      "problem": {
-        "description": "Learners need a clear route through subjects, terms, and lessons while retaining their individual study progress.",
-        "media": []
-      },
-      "solution": {
-        "description": "Created a data-driven lesson registry and separate learner profiles, with progress and notes stored in Neon.",
-        "media": []
-      },
-      "result": {
-        "description": "The study space supports published lessons and saved progress. Its lightweight profile selection is intended for a family setting, not secure school-wide authentication.",
-        "facts": [],
-        "media": []
-      }
-    }
-  },
-  {
-    "slug": "veriflow",
-    "title": "VeriFlow",
-    "subtitle": "Financial records for market traders",
-    "description": "A WhatsApp-oriented loan-officer concept and financial dashboard for turning everyday trader sales into records for lending review.",
-    "category": "Fintech",
-    "tags": [
-      "React",
-      "Express",
-      "MongoDB"
+  }),
+  project({
+    slug: "branding-korner",
+    title: "Branding Korner",
+    subtitle: "Website for a Lagos Branding & Documentation Firm",
+    description: "A marketing site for Branding Korner Global Consult, covering branding, global documentation, business consultancy and tech, with motion, a dotted world map and a contact form.",
+    category: "Client Website",
+    tags: ["Next.js 16", "React 19", "Tailwind CSS v4", "Motion", "21st.dev"],
+    featured: false,
+    color: "var(--ca-blue)",
+    liveUrl: "https://branding-korner.vercel.app",
+    githubUrl: "https://github.com/adeyanjufuhad/branding-korner",
+    alt: "Branding Korner homepage: 'Your brand, ready for Toronto.' beside a dotted globe",
+    facts: [["Role", "Frontend Engineer"], ["Client", "Branding Korner"], ["Year", "2026"]],
+    problem: "A firm whose services range from brand identity to study-abroad documents needed one site that looks credible to clients at home and abroad, and keeps six very different services easy to scan.",
+    solution: "Built on the Next.js 16 App Router with Tailwind v4 brand tokens and 21st.dev components adapted to the palette: a world map pre-rendered to SVG so nothing is computed in the browser, glowing service cards, a bento services grid, a rotating destination headline and a tubelight navbar. Enquiries can be delivered by email through Resend.",
+    result: "A live, light-only site with Home, About, Services and Contact pages with company details, services and contact info kept in one config file.",
+    results: [
+      ["6", "Service areas", "From brand identity to tech"],
+      ["4 pages", "Site map", "Home, About, Services, Contact"],
+      ["1 file", "Site config", "Company details live in site.ts"],
     ],
-    "featured": false,
-    "liveUrl": "",
-    "githubUrl": "https://github.com/adeyanjufuhad/VeriFlow",
-    "repositoryCreated": "2026-10-05",
-    "color": "var(--ca-magenta)",
-    "textColor": "text-white",
-    "bgClass": "",
-    "heroImages": [
-      {
-        "type": "image",
-        "src": "/projects/recent/veriflow-cover.svg",
-        "alt": "VeriFlow illustrated project cover"
-      }
+  }),
+  project({
+    slug: "visa-prep-desk",
+    title: "The Visa Prep Desk",
+    subtitle: "Make Sense of a Visa Refusal, Then Reapply Right",
+    description: "Pick the wording closest to your refusal letter and the Visa Prep Desk explains what it may point to, what to check and what to do next, without a single document leaving your device.",
+    category: "Client Website",
+    tags: ["JavaScript", "HTML", "CSS", "Accessibility", "localStorage"],
+    featured: false,
+    color: "var(--ca-green)",
+    liveUrl: "https://visa-prep-desk.vercel.app",
+    githubUrl: "https://github.com/adeyanjufuhad/visa-prep-desk",
+    alt: "The Visa Prep Desk: 'Understand the refusal before you reapply.' with the reason picker",
+    facts: [["Role", "Frontend Engineer"], ["Type", "Interactive Tool"], ["Year", "2026"]],
+    problem: "After a refusal, applicants often reapply straight away with the same documents, or bury the visa office in paperwork that doesn't answer the actual concern.",
+    solution: "Built a zero-dependency vanilla JS app with a three-step flow: choose from six refusal categories, read a tailored review plan with expandable topics and ordered next steps, then copy or print the checklist. High-risk cases, such as deception findings or bans, are flagged with a recommendation to get legal advice.",
+    result: "A fast, fully accessible tool (skip links, ARIA live regions, keyboard navigation and a print stylesheet) that keeps everything in the browser's local storage.",
+    results: [
+      ["6", "Refusal types", "Each with its own review plan"],
+      ["0 uploads", "Privacy", "Nothing leaves the device"],
+      ["0 deps", "Footprint", "Plain HTML, CSS and JavaScript"],
     ],
-    "facts": [
-      {
-        "label": "Category",
-        "value": "Fintech",
-        "color": "var(--ca-cyan)",
-        "rotate": "-rotate-2",
-        "clip": "ca-clip-blob-1"
-      },
-      {
-        "label": "Repository added",
-        "value": "2026-10-05",
-        "color": "var(--ca-yellow-soft)",
-        "rotate": "rotate-2",
-        "clip": "ca-clip-blob-2"
-      }
+  }),
+  project({
+    slug: "csca-90plus",
+    title: "CSCA 90+",
+    subtitle: "Math & Physics Prep for Studying in China",
+    description: "A prep site for the CSCA exam: detailed maths and physics notes, real past-paper questions, timed mocks and a day-by-day study plan, with Xiao Hu the study fox keeping you on track.",
+    category: "EdTech",
+    tags: ["Next.js", "TypeScript", "KaTeX", "Tailwind CSS"],
+    featured: false,
+    color: "var(--ca-orange)",
+    liveUrl: "https://csca-90plus.vercel.app",
+    githubUrl: "https://github.com/adeyanjufuhad/csca-90plus",
+    alt: "CSCA 90+ homepage: 'Study in China? Start with the CSCA.' beside the Great Wall",
+    facts: [["Role", "Full Stack Engineer"], ["Subjects", "Math + Physics"], ["Year", "2026"]],
+    problem: "Students aiming for Chinese universities such as NPU, BIT and Tsinghua have scattered notes and few real past papers to practise from before the CSCA.",
+    solution: "Built a Next.js study site with structured modules, past papers and free tools, maths notation rendered with KaTeX, a weak-topic finder and timed mocks, all explorable without signing up.",
+    result: "A live prep hub with a daily squad challenge (30 questions a day) aimed at a 90+ in both subjects.",
+    results: [
+      ["990+", "Questions", "Including real recalled papers"],
+      ["2", "Subjects", "Mathematics and physics"],
+      ["No sign-up", "To explore", "Start practising immediately"],
     ],
-    "story": {
-      "problem": {
-        "description": "Informal traders often need clearer financial records to support conversations with lenders.",
-        "media": []
-      },
-      "solution": {
-        "description": "Built a React dashboard and an Express/MongoDB financial transaction backend for the hackathon project.",
-        "media": []
-      },
-      "result": {
-        "description": "The hackathon repository contains the financial dashboard and transaction backend, with the broader lending workflow described as the product direction.",
-        "facts": [],
-        "media": []
-      }
-    }
-  },
-  {
-    "slug": "branding-korner",
-    "title": "Branding Korner",
-    "subtitle": "Corporate services and brand presence",
-    "description": "A company website for Branding Korner Global Consult Limited with service, about, and contact pages.",
-    "category": "Client websites",
-    "tags": [
-      "Next.js",
-      "React",
-      "Tailwind CSS"
+  }),
+  project({
+    slug: "chopbeta-ai",
+    title: "Chop Beta AI",
+    subtitle: "AI Meal Decisions for Nigerian Food & Budgets",
+    description: "The launch site for Chop Beta AI, an AI food assistant that plans healthy meals around Nigerian staples and your real budget, with Android and iPhone waitlists.",
+    category: "AI",
+    tags: ["Next.js", "React", "TypeScript", "Tailwind CSS", "Framer Motion"],
+    featured: false,
+    color: "var(--ca-magenta)",
+    liveUrl: "https://chopbeta-ai.vercel.app",
+    githubUrl: "https://github.com/adeyanjufuhad/ChopBeta-AI-landing",
+    alt: "Chop Beta AI landing page: 'Eat Smart. Live Well. Powered by AI.'",
+    facts: [["Role", "Frontend Engineer"], ["Type", "Product Launch"], ["Year", "2026"]],
+    problem: "Nutrition apps assume Western diets, with ingredients that are expensive or hard to find in Nigeria. Students and busy professionals end up making last-minute, low-nutrition choices.",
+    solution: "Built a responsive Next.js and TypeScript landing page that leads with familiar meals (jollof, efo riro with amala, moi moi, pepper soup) on a scrolling meal strip, a budget-aware meal card and health and halal badges, with waitlist calls to action for both app stores.",
+    result: "A live launch page that collects early-access sign-ups and explains the product in local terms: your meals, your budget, your goals.",
+    results: [
+      ["Local first", "Menu", "Built on Nigerian staples"],
+      ["2 stores", "Waitlist", "Android and iPhone early access"],
+      ["Budget aware", "Planning", "Meals that fit what you can spend"],
     ],
-    "featured": false,
-    "liveUrl": "https://branding-korner.vercel.app",
-    "githubUrl": "https://github.com/adeyanjufuhad/branding-korner",
-    "repositoryCreated": "2026-10-03",
-    "color": "var(--ca-blue)",
-    "textColor": "text-white",
-    "bgClass": "",
-    "heroImages": [
-      {
-        "type": "image",
-        "src": "/projects/recent/branding-korner-cover.svg",
-        "alt": "Branding Korner illustrated project cover"
-      }
+  }),
+  project({
+    slug: "veriflow",
+    title: "VeriFlow",
+    subtitle: "Hackathon: An AI Loan Officer for Market Traders",
+    description: "A hackathon concept for an AI loan officer in WhatsApp that turns market traders' everyday sales into verified financial records lenders can work with, shown through a lender dashboard.",
+    category: "Fintech",
+    tags: ["React 19", "Vite", "Recharts", "Express", "MongoDB"],
+    featured: false,
+    color: "var(--ca-orange)",
+    cover: "/projects/recent/veriflow-cover.svg",
+    githubUrl: "https://github.com/adeyanjufuhad/VeriFlow",
+    alt: "VeriFlow project cover",
+    facts: [["Role", "Full Stack Engineer"], ["Context", "Hackathon"], ["Year", "2026"]],
+    problem: "Market traders make sales every day but have no paper trail, so banks can't size working-capital loans for them and they fall back on expensive informal credit.",
+    solution: "Built a React 19 and Vite dashboard with Recharts that shows how verified trader sales would look to a lender, and an Express and MongoDB backend for recording transactions.",
+    result: "A working hackathon prototype of the lender-side view. The dashboard uses illustrative sample data; WhatsApp capture and bank integrations are the next step.",
+    results: [
+      ["WhatsApp", "Capture", "Where traders already record sales"],
+      ["Dashboard", "Lender view", "Sales history charted for credit review"],
+      ["Prototype", "Stage", "Lender-side view, built for a hackathon"],
     ],
-    "facts": [
-      {
-        "label": "Category",
-        "value": "Client websites",
-        "color": "var(--ca-cyan)",
-        "rotate": "-rotate-2",
-        "clip": "ca-clip-blob-1"
-      },
-      {
-        "label": "Repository added",
-        "value": "2026-10-03",
-        "color": "var(--ca-yellow-soft)",
-        "rotate": "rotate-2",
-        "clip": "ca-clip-blob-2"
-      }
-    ],
-    "story": {
-      "problem": {
-        "description": "A consultancy needs a coherent online home for its services and enquiries.",
-        "media": []
-      },
-      "solution": {
-        "description": "Built the site with the Next.js App Router, shared UI primitives, brand tokens, and motion.",
-        "media": []
-      },
-      "result": {
-        "description": "The repository provides a deployed company website; contact delivery and final company details depend on operator configuration.",
-        "facts": [],
-        "media": []
-      }
-    }
-  },
-  {
-    "slug": "big-apple-world",
-    "title": "Big Apple Beauty",
-    "subtitle": "Beauty wholesale with WhatsApp checkout",
-    "description": "A minimalist beauty and spa wholesale storefront with database-backed products, a cart, WhatsApp checkout, and an owner admin app.",
-    "category": "E-Commerce",
-    "tags": [
-      "Next.js",
-      "Tailwind CSS",
-      "Neon PostgreSQL"
-    ],
-    "featured": false,
-    "liveUrl": "https://big-apple-world.vercel.app",
-    "githubUrl": "https://github.com/adeyanjufuhad/big-apple-world",
-    "repositoryCreated": "2026-09-30",
-    "color": "var(--ca-green)",
-    "textColor": "text-white",
-    "bgClass": "",
-    "heroImages": [
-      {
-        "type": "image",
-        "src": "/projects/recent/big-apple-world-cover.svg",
-        "alt": "Big Apple Beauty illustrated project cover"
-      }
-    ],
-    "facts": [
-      {
-        "label": "Category",
-        "value": "E-commerce",
-        "color": "var(--ca-cyan)",
-        "rotate": "-rotate-2",
-        "clip": "ca-clip-blob-1"
-      },
-      {
-        "label": "Repository added",
-        "value": "2026-09-30",
-        "color": "var(--ca-yellow-soft)",
-        "rotate": "rotate-2",
-        "clip": "ca-clip-blob-2"
-      }
-    ],
-    "story": {
-      "problem": {
-        "description": "A wholesale shop needs browsable products and an order flow that fits how its customers already communicate.",
-        "media": []
-      },
-      "solution": {
-        "description": "Connected the storefront and owner admin to Neon, with checkout formatting the cart as a WhatsApp order and saving a pending order.",
-        "media": []
-      },
-      "result": {
-        "description": "The implementation contains both storefront and admin applications. Checkout hands the order to WhatsApp rather than taking an online payment.",
-        "facts": [],
-        "media": []
-      }
-    }
-  },
-  {
-    "slug": "paraval",
-    "title": "Paraval",
-    "subtitle": "Human context for AI evaluation",
-    "description": "A product website for a human data and AI evaluation initiative focused on underrepresented languages and Nigerian contexts.",
-    "category": "AI",
-    "tags": [
-      "Next.js",
-      "TypeScript",
-      "Three.js"
-    ],
-    "featured": false,
-    "liveUrl": "https://paraval-lilac.vercel.app",
-    "githubUrl": "https://github.com/adeyanjufuhad/paraval",
-    "repositoryCreated": "2026-09-27",
-    "color": "var(--ca-orange)",
-    "textColor": "text-white",
-    "bgClass": "",
-    "heroImages": [
-      {
-        "type": "image",
-        "src": "/projects/recent/paraval-cover.svg",
-        "alt": "Paraval illustrated project cover"
-      }
-    ],
-    "facts": [
-      {
-        "label": "Category",
-        "value": "AI",
-        "color": "var(--ca-cyan)",
-        "rotate": "-rotate-2",
-        "clip": "ca-clip-blob-1"
-      },
-      {
-        "label": "Repository added",
-        "value": "2026-09-27",
-        "color": "var(--ca-yellow-soft)",
-        "rotate": "rotate-2",
-        "clip": "ca-clip-blob-2"
-      }
-    ],
-    "story": {
-      "problem": {
-        "description": "AI evaluation often overlooks local languages and the everyday situations people need models to understand.",
-        "media": []
-      },
-      "solution": {
-        "description": "Built a Next.js product presence with an interactive visual direction and information about consented human evaluation.",
-        "media": []
-      },
-      "result": {
-        "description": "Deployed a product website explaining the initiative, local-language evaluation goals, and contributor proposition. The benchmark and contributor network remain part of its stated direction.",
-        "facts": [],
-        "media": []
-      }
-    }
-  },
-  {
-    "slug": "locate-am",
-    "title": "LocateAm",
-    "subtitle": "Landmark directions with a human-confirmed pin",
-    "description": "A Lagos-first geocoder prototype for landmark-style directions, ranked map references, and human-confirmed destination pins.",
-    "category": "Maps",
-    "tags": [
-      "React",
-      "FastAPI",
-      "PostGIS"
-    ],
-    "featured": false,
-    "liveUrl": "https://locate-am.vercel.app",
-    "githubUrl": "https://github.com/adeyanjufuhad/Locate-Am",
-    "repositoryCreated": "2026-09-24",
-    "color": "var(--ca-magenta)",
-    "textColor": "text-white",
-    "bgClass": "",
-    "heroImages": [
-      {
-        "type": "image",
-        "src": "/projects/recent/locate-am-cover.svg",
-        "alt": "LocateAm illustrated project cover"
-      }
-    ],
-    "facts": [
-      {
-        "label": "Category",
-        "value": "Maps",
-        "color": "var(--ca-cyan)",
-        "rotate": "-rotate-2",
-        "clip": "ca-clip-blob-1"
-      },
-      {
-        "label": "Repository added",
-        "value": "2026-09-24",
-        "color": "var(--ca-yellow-soft)",
-        "rotate": "rotate-2",
-        "clip": "ca-clip-blob-2"
-      }
-    ],
-    "story": {
-      "problem": {
-        "description": "Informal directions can identify a landmark without establishing a reliable delivery entrance.",
-        "media": []
-      },
-      "solution": {
-        "description": "Combined rule parsing, fuzzy retrieval, conservative ranking, and a React map interface with a pending pin-confirmation queue.",
-        "media": []
-      },
-      "result": {
-        "description": "The default backend uses fictional fixtures; real-world accuracy remains unmeasured. Candidate landmarks are approximate references, not verified entrances.",
-        "facts": [],
-        "media": []
-      }
-    }
-  },
-  {
-    "slug": "visa-prep-desk",
-    "title": "The Visa Prep Desk",
-    "subtitle": "Refusal review and reapplication preparation",
-    "description": "An interactive website that helps applicants organize visa-refusal reasons and prepare a structured reapplication checklist.",
-    "category": "Client websites",
-    "tags": [
-      "JavaScript",
-      "HTML",
-      "CSS"
-    ],
-    "featured": false,
-    "liveUrl": "https://visa-prep-desk.vercel.app",
-    "githubUrl": "https://github.com/adeyanjufuhad/visa-prep-desk",
-    "repositoryCreated": "2026-09-20",
-    "color": "var(--ca-blue)",
-    "textColor": "text-white",
-    "bgClass": "",
-    "heroImages": [
-      {
-        "type": "image",
-        "src": "/projects/recent/visa-prep-desk-cover.svg",
-        "alt": "The Visa Prep Desk illustrated project cover"
-      }
-    ],
-    "facts": [
-      {
-        "label": "Category",
-        "value": "Client websites",
-        "color": "var(--ca-cyan)",
-        "rotate": "-rotate-2",
-        "clip": "ca-clip-blob-1"
-      },
-      {
-        "label": "Repository added",
-        "value": "2026-09-20",
-        "color": "var(--ca-yellow-soft)",
-        "rotate": "rotate-2",
-        "clip": "ca-clip-blob-2"
-      }
-    ],
-    "story": {
-      "problem": {
-        "description": "Applicants need to distinguish the refusal grounds stated in a letter from the evidence they should review before reapplying.",
-        "media": []
-      },
-      "solution": {
-        "description": "Built a browser-based reason finder and preparation workflow that stores selections locally without uploading documents.",
-        "media": []
-      },
-      "result": {
-        "description": "The website provides organization and preparation guidance. It does not promise visa approval or replace professional immigration advice.",
-        "facts": [],
-        "media": []
-      }
-    }
-  },
-  {
-    "slug": "chopbeta-ai",
-    "title": "Chop Beta AI",
-    "subtitle": "Nigerian food intelligence, introduced",
-    "description": "A product landing page introducing a Nigerian food-intelligence platform, local meals, and an early-access waitlist.",
-    "category": "Product websites",
-    "tags": [
-      "React",
-      "TypeScript",
-      "Tailwind CSS"
-    ],
-    "featured": false,
-    "liveUrl": "https://chopbeta-ai.vercel.app",
-    "githubUrl": "https://github.com/adeyanjufuhad/ChopBeta-AI-landing",
-    "repositoryCreated": "2026-09-12",
-    "color": "var(--ca-green)",
-    "textColor": "text-white",
-    "bgClass": "",
-    "heroImages": [
-      {
-        "type": "image",
-        "src": "/projects/recent/chopbeta-ai-cover.svg",
-        "alt": "Chop Beta AI illustrated project cover"
-      }
-    ],
-    "facts": [
-      {
-        "label": "Category",
-        "value": "Product websites",
-        "color": "var(--ca-cyan)",
-        "rotate": "-rotate-2",
-        "clip": "ca-clip-blob-1"
-      },
-      {
-        "label": "Repository added",
-        "value": "2026-09-12",
-        "color": "var(--ca-yellow-soft)",
-        "rotate": "rotate-2",
-        "clip": "ca-clip-blob-2"
-      }
-    ],
-    "story": {
-      "problem": {
-        "description": "A locally relevant food product needs to communicate its purpose in familiar meals, budgets, and everyday language.",
-        "media": []
-      },
-      "solution": {
-        "description": "Built a responsive React and TypeScript landing page with meal showcases, motion, and waitlist calls to action.",
-        "media": []
-      },
-      "result": {
-        "description": "The public landing page introduces local meal-planning ideas and directs early-access interest to the waitlist.",
-        "facts": [],
-        "media": []
-      }
-    }
-  },
-  {
-    "slug": "devmind",
-    "title": "DevMind",
-    "subtitle": "A multi-stage code debugging companion",
-    "description": "A developer tool that coordinates code diagnosis, suggested fixes, test generation, documentation, and explanations in a multi-model pipeline.",
-    "category": "Developer tools",
-    "tags": [
-      "React",
-      "Python",
-      "FastAPI"
-    ],
-    "featured": true,
-    "liveUrl": "https://frontend-weld-six-36.vercel.app",
-    "githubUrl": "https://github.com/adeyanjufuhad/DevMind",
-    "repositoryCreated": "2026-09-11",
-    "color": "var(--ca-orange)",
-    "textColor": "text-white",
-    "bgClass": "",
-    "heroImages": [
-      {
-        "type": "image",
-        "src": "/projects/recent/devmind-cover.svg",
-        "alt": "DevMind illustrated project cover"
-      }
-    ],
-    "facts": [
-      {
-        "label": "Category",
-        "value": "Developer tools",
-        "color": "var(--ca-cyan)",
-        "rotate": "-rotate-2",
-        "clip": "ca-clip-blob-1"
-      },
-      {
-        "label": "Repository added",
-        "value": "2026-09-11",
-        "color": "var(--ca-yellow-soft)",
-        "rotate": "rotate-2",
-        "clip": "ca-clip-blob-2"
-      }
-    ],
-    "story": {
-      "problem": {
-        "description": "Debugging a snippet often involves separate steps for diagnosis, correction, tests, and explaining the change.",
-        "media": []
-      },
-      "solution": {
-        "description": "Built a React interface and a FastAPI pipeline that streams progress through server-sent events and coordinates model providers.",
-        "media": []
-      },
-      "result": {
-        "description": "The repository brings the pipeline and interface together in a streamed debugging workflow, with generated suggestions available for developer review.",
-        "facts": [],
-        "media": []
-      }
-    }
-  },
-  {
-    "slug": "tokenscope",
-    "title": "TokenScope",
-    "subtitle": "Solana token due-diligence research",
-    "description": "A Solana token research interface combining risk signals and analysis into an inspectable due-diligence report.",
-    "category": "Developer tools",
-    "tags": [
-      "React",
-      "Python",
-      "FastAPI"
-    ],
-    "featured": false,
-    "liveUrl": "https://tokenscope-eta.vercel.app",
-    "githubUrl": "https://github.com/adeyanjufuhad/TokenScope",
-    "repositoryCreated": "2026-09-09",
-    "color": "var(--ca-magenta)",
-    "textColor": "text-white",
-    "bgClass": "",
-    "heroImages": [
-      {
-        "type": "image",
-        "src": "/projects/recent/tokenscope-cover.svg",
-        "alt": "TokenScope illustrated project cover"
-      }
-    ],
-    "facts": [
-      {
-        "label": "Category",
-        "value": "Developer tools",
-        "color": "var(--ca-cyan)",
-        "rotate": "-rotate-2",
-        "clip": "ca-clip-blob-1"
-      },
-      {
-        "label": "Repository added",
-        "value": "2026-09-09",
-        "color": "var(--ca-yellow-soft)",
-        "rotate": "rotate-2",
-        "clip": "ca-clip-blob-2"
-      }
-    ],
-    "story": {
-      "problem": {
-        "description": "Token research involves multiple signals that are difficult to inspect consistently in separate places.",
-        "media": []
-      },
-      "solution": {
-        "description": "Built a React frontend and FastAPI analysis service with report synthesis and database adapters described in the repository.",
-        "media": []
-      },
-      "result": {
-        "description": "The project produces research reports rather than investment guarantees. Its output is not proof that a token is safe.",
-        "facts": [],
-        "media": []
-      }
-    }
-  },
-  {
-    "slug": "sova",
-    "title": "Sova",
-    "subtitle": "A record keeper for savings circles",
-    "description": "Ajo, esusu, and adashe savings-circle software for members, payment confirmations, payout turns, and tamper-evident records.",
-    "category": "Fintech",
-    "tags": [
-      "Flutter",
-      "Dart",
-      "Node.js"
-    ],
-    "featured": true,
-    "liveUrl": "https://sova.rumptycloud.app",
-    "githubUrl": "https://github.com/adeyanjufuhad/Sova",
-    "repositoryCreated": "2026-06-24",
-    "color": "var(--ca-blue)",
-    "textColor": "text-white",
-    "bgClass": "",
-    "heroImages": [
-      {
-        "type": "image",
-        "src": "/projects/recent/sova-cover.svg",
-        "alt": "Sova illustrated project cover"
-      }
-    ],
-    "facts": [
-      {
-        "label": "Category",
-        "value": "Fintech",
-        "color": "var(--ca-cyan)",
-        "rotate": "-rotate-2",
-        "clip": "ca-clip-blob-1"
-      },
-      {
-        "label": "Repository added",
-        "value": "2026-06-24",
-        "color": "var(--ca-yellow-soft)",
-        "rotate": "rotate-2",
-        "clip": "ca-clip-blob-2"
-      }
-    ],
-    "story": {
-      "problem": {
-        "description": "Self-run savings circles need a shared record of commitments and confirmations without handing custody of money to another service.",
-        "media": []
-      },
-      "solution": {
-        "description": "Built circle workflows, a commit-reveal draw, payment confirmations, disputes, and a verifiable hash-chain ledger.",
-        "media": []
-      },
-      "result": {
-        "description": "The implemented service records activity; it does not hold, transfer, lend, or invest members’ money. Members pay each other outside the app.",
-        "facts": [],
-        "media": []
-      }
-    }
-  },
-  {
-    "slug": "university-duel",
-    "title": "University Duel",
-    "subtitle": "Buzzer drills and competitive quiz practice",
-    "description": "A solo and multiplayer quiz-practice app for Nigerian university students, with buzzer drills and room-based duels.",
-    "category": "Education",
-    "tags": [
-      "React",
-      "TypeScript",
-      "Vite"
-    ],
-    "featured": false,
-    "liveUrl": "https://university-duel.vercel.app",
-    "githubUrl": "https://github.com/adeyanjufuhad/University-Duel",
-    "repositoryCreated": "2026-09-02",
-    "color": "var(--ca-green)",
-    "textColor": "text-white",
-    "bgClass": "",
-    "heroImages": [
-      {
-        "type": "image",
-        "src": "/projects/recent/university-duel-cover.svg",
-        "alt": "University Duel illustrated project cover"
-      }
-    ],
-    "facts": [
-      {
-        "label": "Category",
-        "value": "Education",
-        "color": "var(--ca-cyan)",
-        "rotate": "-rotate-2",
-        "clip": "ca-clip-blob-1"
-      },
-      {
-        "label": "Repository added",
-        "value": "2026-09-02",
-        "color": "var(--ca-yellow-soft)",
-        "rotate": "rotate-2",
-        "clip": "ca-clip-blob-2"
-      }
-    ],
-    "story": {
-      "problem": {
-        "description": "Competitive quiz preparation involves reaction speed and answer delivery as well as subject knowledge.",
-        "media": []
-      },
-      "solution": {
-        "description": "Built timed practice modes, browser voice recognition, answer matching, and room-code pairing for online duels.",
-        "media": []
-      },
-      "result": {
-        "description": "The public repository provides the practice application and deployment. Competition results or learning gains have not been inferred.",
-        "facts": [],
-        "media": []
-      }
-    }
-  }
+  }),
 ];

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { portfolioData } from '../data/portfolioData';
+import { scrollToId } from '../components/scroll';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 import { Polaroid, DropIn, StaggerText, Reveal } from '../components/motion';
@@ -10,10 +11,7 @@ export default function About() {
 
   const scrollToSection = (id) => {
     setActiveTab(id);
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    scrollToId(id);
   };
 
   useEffect(() => {

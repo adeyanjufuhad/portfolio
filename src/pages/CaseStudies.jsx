@@ -69,7 +69,7 @@ export default function CaseStudies() {
                               src={project.heroImages[0].src}
                               loading="lazy"
                               alt={project.title}
-                              className={`h-full w-full ${isLogo ? 'object-contain' : 'object-cover'}`}
+                              className={`h-full w-full ${isLogo ? 'object-contain' : 'object-cover object-left-top'}`}
                             />
                           </div>
                         </div>

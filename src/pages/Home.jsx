@@ -5,6 +5,8 @@ import SplashScreen from '../components/SplashScreen';
 import TechStackGrid from '../components/TechStackGrid';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
+import VelocityBand from '../components/VelocityBand';
+import { ScrollRevealText, StackCard, useStackProgress } from '../components/scroll';
 import {
   useLens,
   Pop,
@@ -19,6 +21,8 @@ import {
 export default function Home() {
   const { hero, bio, case_studies } = portfolioData;
   const { lensRef: heroLensRef, onMove: onHeroMouseMove } = useLens([3, 97]);
+  const featured = case_studies.items.filter(project => project.featured).slice(0, 6);
+  const { ref: stackRef, progress: stackProgress } = useStackProgress();
 
   return (
     <div className="t-creative-artsy min-h-screen">
@@ -230,6 +234,13 @@ export default function Home() {
           </div>
         </section>
 
+        <VelocityBand
+          texts={[
+            'Full stack developer · Product engineer · Lagos',
+            'React · Next.js · Node.js · Flutter · FastAPI · Postgres',
+          ]}
+        />
+
         {/* BIO OVERVIEW SECTION */}
         <section className="ca-grid relative scroll-mt-24 border-t-2 border-[var(--ca-ink)] py-20 sm:py-28 overflow-hidden">
           {/* Desktop floating polaroid photos BEHIND text (z-0) */}
@@ -277,9 +288,10 @@ export default function Home() {
               </div>
 
               <div className="relative z-10 mt-8 max-w-3xl">
-                <p className="ca-hand text-3xl font-medium leading-snug text-[var(--ca-ink)] sm:text-5xl">
-                  {bio.body}
-                </p>
+                <ScrollRevealText
+                  text={bio.body}
+                  className="ca-hand text-3xl font-medium leading-snug text-[var(--ca-ink)] sm:text-5xl"
+                />
               </div>
 
               {/* Mobile polaroids */}
@@ -367,8 +379,8 @@ export default function Home() {
           </div>
 
           {/* Sticky Stacked Project Cards */}
-          <div className="flex flex-col gap-16 px-4 sm:px-8 lg:px-20 lg:gap-[12vh]">
-            {case_studies.items.filter(project => project.featured).slice(0, 6).map((project, idx) => {
+          <div ref={stackRef} className="flex flex-col gap-16 px-4 sm:px-8 lg:px-20 lg:gap-[12vh]">
+            {featured.map((project, idx) => {
               const isFirst = idx === 0;
               const tabMarginLeft = isFirst ? '0' : `min(calc(${idx * 21}% - 72px), calc(100% - 340px))`;
               const tabClipClass = isFirst
@@ -383,8 +395,11 @@ export default function Home() {
               const isLogo = project.heroImages[0]?.src.includes('logo');
 
               return (
-                <article
+                <StackCard
                   key={project.slug}
+                  index={idx}
+                  total={featured.length}
+                  progress={stackProgress}
                   className="lg:sticky lg:top-28"
                   style={{ zIndex: idx + 1 }}
                 >
@@ -458,7 +473,7 @@ export default function Home() {
                       </div>
                     </div>
                   </div>
-                </article>
+                </StackCard>
               );
             })}
           </div>

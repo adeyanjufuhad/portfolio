@@ -4,7 +4,8 @@ import { portfolioData } from '../data/portfolioData';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 
-import { SeeLensImage, StaggerText } from '../components/motion';
+import { SeeLensImage, StaggerText, Reveal } from '../components/motion';
+import ContainerScroll from '../components/bits/ContainerScroll';
 
 function MoreProjectCard({ otherProject }) {
   const isLogo = otherProject.heroImages[0]?.src.includes('logo');
@@ -49,7 +50,9 @@ export default function CaseStudyDetail() {
   if (slug === 'project-2') targetSlug = 'kuza-store';
 
   const project = case_studies.items.find(p => p.slug === targetSlug) || case_studies.items[0];
-  const otherProjects = case_studies.items.filter(p => p.slug !== project.slug);
+  // Suggest the next projects in the collection, wrapping around, so every page links somewhere new.
+  const projectIndex = case_studies.items.indexOf(project);
+  const otherProjects = [1, 2].map(step => case_studies.items[(projectIndex + step) % case_studies.items.length]);
   const isLogo = project.heroImages[0]?.src.includes('logo');
 
   return (
@@ -148,30 +151,26 @@ export default function CaseStudyDetail() {
           </div>
         </div>
 
-        {/* Hero Image with Tape Accents */}
-        <div className="mt-12">
-          <div className="relative">
-            <span aria-hidden="true" className="absolute -left-5 -top-3 z-10 h-6 w-24 -rotate-[9deg] bg-white/55 shadow-[0_1px_3px_rgba(17,18,18,0.15)]" />
-            <span aria-hidden="true" className="absolute -right-5 -top-3 z-10 h-6 w-24 rotate-[9deg] bg-white/55 shadow-[0_1px_3px_rgba(17,18,18,0.15)]" />
-            <div
-              className={`relative overflow-hidden border-4 border-[var(--ca-ink)] h-[45vh] w-full sm:h-[65vh] lg:h-[75vh] shadow-[8px_12px_0_var(--ca-ink)] flex items-center justify-center ${
-                isLogo ? 'bg-[#141416] p-8 sm:p-14' : 'bg-[var(--ca-surface)]'
-              }`}
-            >
-              <img
-                src={project.heroImages[0].src}
-                alt={project.title}
-                className={`transition-transform duration-700 hover:scale-102 ${
-                  isLogo ? 'max-h-full max-w-full object-contain' : 'h-full w-full object-cover'
-                }`}
-              />
-            </div>
+        {/* Hero Image: tilts back in 3D and flattens as it scrolls into view */}
+        <ContainerScroll className="mt-12">
+          <span aria-hidden="true" className="absolute -left-5 -top-3 z-10 h-6 w-24 -rotate-[9deg] bg-white/55 shadow-[0_1px_3px_rgba(17,18,18,0.15)]" />
+          <span aria-hidden="true" className="absolute -right-5 -top-3 z-10 h-6 w-24 rotate-[9deg] bg-white/55 shadow-[0_1px_3px_rgba(17,18,18,0.15)]" />
+          <div
+            className={`relative flex w-full items-center justify-center overflow-hidden ${
+              isLogo ? 'h-[45vh] bg-[#141416] p-8 sm:h-[65vh] sm:p-14 lg:h-[75vh]' : 'aspect-[16/10] bg-[var(--ca-surface)]'
+            }`}
+          >
+            <img
+              src={project.heroImages[0].src}
+              alt={project.heroImages[0].alt || project.title}
+              className={isLogo ? 'max-h-full max-w-full object-contain' : 'h-full w-full object-cover object-left-top'}
+            />
           </div>
-        </div>
+        </ContainerScroll>
 
         {/* Challenge Section */}
         <section className="mt-20 sm:mt-28">
-          <div className="mx-auto max-w-3xl">
+          <Reveal className="mx-auto max-w-3xl">
             <p className="ca-hand text-3xl text-[var(--ca-ink)] sm:text-4xl">
               {case_studies.challengeLabel}
             </p>
@@ -180,12 +179,12 @@ export default function CaseStudyDetail() {
                 {project.story.problem.description}
               </p>
             </div>
-          </div>
+          </Reveal>
         </section>
 
         {/* Approach Section */}
         <section className="mt-20 sm:mt-28">
-          <div className="mx-auto max-w-3xl">
+          <Reveal className="mx-auto max-w-3xl">
             <p className="ca-hand text-3xl text-[var(--ca-ink)] sm:text-4xl">
               {case_studies.approachLabel}
             </p>
@@ -194,12 +193,12 @@ export default function CaseStudyDetail() {
                 {project.story.solution.description}
               </p>
             </div>
-          </div>
+          </Reveal>
         </section>
 
         {/* Results Section */}
         <section className="mt-20 sm:mt-28">
-          <div className="mx-auto max-w-3xl">
+          <Reveal className="mx-auto max-w-3xl">
             <p className="ca-hand text-3xl text-[var(--ca-ink)] sm:text-4xl">
               {case_studies.resultLabel}
             </p>
@@ -212,21 +211,22 @@ export default function CaseStudyDetail() {
             {/* 3 Metric Result Cards */}
             <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-3">
               {project.story.result.facts.map((fact, idx) => (
+                <Reveal key={idx} delay={idx * 0.1}>
                 <div
-                  key={idx}
                   className={`p-5 [filter:drop-shadow(2px_4px_5px_rgba(17,18,18,0.14))] ${fact.rotate} ca-clip-blob-${(idx % 3) + 1}`}
                   style={{ backgroundColor: fact.color }}
                 >
-                  <p className="leading-tight text-[var(--ca-ink)] text-5xl font-bold tracking-tight">
+                  <p className={`leading-tight text-[var(--ca-ink)] font-bold tracking-tight ${String(fact.value).length > 9 ? 'text-2xl' : String(fact.value).length > 5 ? 'text-3xl' : 'text-5xl'} break-words`}>
                     {fact.value}
                   </p>
                   <p className="ca-mono mt-3 text-[11px] font-bold uppercase tracking-widest text-[var(--ca-ink)]/80">
                     {fact.desc || fact.label}
                   </p>
                 </div>
+                </Reveal>
               ))}
             </div>
-          </div>
+          </Reveal>
         </section>
 
         {/* More Projects Section */}

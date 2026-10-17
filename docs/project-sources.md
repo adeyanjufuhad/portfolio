@@ -1,8 +1,8 @@
 # Project inventory verification
 
-Reviewed on 2026-10-13 against GitHub repository metadata, available READMEs, and package manifests. The existing CheckAm and FastTrack entries were already present on origin/main and were preserved.
+Rewritten on 2026-10-17 from each repository's README, package manifests and the live deployment. CheckAm and FastTrack lead the collection as projects 01 and 02; the fourteen projects below follow, then the earlier builds.
 
-The update adds fourteen public projects. Separate private application repositories, profile repositories, older duplicate sites, and tutorial exercises were not published as new case studies. Chop Beta AI represents its public landing-page repository. Existing case-study claims were not re-audited as part of this content update.
+Covers in `public/projects/recent` are screenshots of each live site captured on 2026-10-17 (1440×900, WebP). VeriFlow has no public deployment, so it keeps an illustrated SVG cover.
 
 | Project | Public source | Evidence |
 | --- | --- | --- |
@@ -21,6 +21,6 @@ The update adds fourteen public projects. Separate private application repositor
 | Sova | [Sova](https://github.com/adeyanjufuhad/Sova) | Repository metadata and README |
 | University Duel | [University-Duel](https://github.com/adeyanjufuhad/University-Duel) | Repository metadata and README |
 
-Live links come from repository homepages or the published README (Sova). Their presence is not a guarantee that a hosted backend or external provider is currently available. No invented delivery times, user counts, lending approvals, conversion gains, or accuracy measurements were added. Repository-added dates are GitHub creation dates, not claimed project start dates.
+Result figures are taken from the README or the live product: for example Edify's question and lesson counts and the CSCA 90+ question count are read from their live homepages, and LocateAm's 704/708 figure is the Ikeja dry-run import recorded in its README. No user counts, revenue, accuracy or latency numbers were invented. Live links point at each project's current production URL (Big Apple Beauty now serves from bigapplebeauty.store). A live link does not guarantee that a free-tier backend is awake: Sova's services sleep when idle and take a few seconds to wake.
 
-Each new cover in public/projects/recent is original SVG typography, explicitly distinct from a product screenshot. The homepage shows six featured entries; the full collection is searchable by title/technology and category, with filters stored in the URL.
+The homepage shows the first six featured entries; the full collection is searchable by title or technology and filterable by category, with filters stored in the URL.
