@@ -250,7 +250,7 @@ export function HeroOrb({ src, className = 'h-20 w-20' }) {
   return (
     <span className={`flex items-center justify-center rounded-full bg-[var(--ca-orange)] p-1.5 shadow-[2px_4px_12px_rgba(25,21,16,0.18)] ${className}`}>
       {src ? (
-        <img src={src} alt="" className="h-full w-full rounded-full object-cover" />
+        <img src={src} alt="" className="h-full w-full rounded-full object-cover object-[50%_18%]" />
       ) : null}
     </span>
   );

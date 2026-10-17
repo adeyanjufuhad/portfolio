@@ -26,7 +26,7 @@ export const techStackIcons = [
       "Kuza Store",
       "Blaze",
       "Trackr",
-      "TaxBridge"
+      "RepoSpec"
     ],
     "github": "https://github.com/adeyanjufuhad/kuza-store",
     "note": "Strict mode · Enterprise typing"
@@ -39,7 +39,7 @@ export const techStackIcons = [
     "category": "Languages",
     "isLanguage": true,
     "projects": [
-      "TaxBridge"
+      "DevMind"
     ],
     "github": "https://github.com/adeyanjufuhad",
     "note": "FastAPI · Automation & Microservices"
@@ -91,7 +91,7 @@ export const techStackIcons = [
     "category": "Languages",
     "isLanguage": true,
     "projects": [
-      "TaxBridge"
+      "Sova"
     ],
     "github": "https://github.com/adeyanjufuhad",
     "note": "Relational queries & Schema design"
@@ -121,7 +121,7 @@ export const techStackIcons = [
     "isLanguage": false,
     "projects": [
       "Kuza Store",
-      "TaxBridge"
+      "Edify"
     ],
     "github": "https://github.com/adeyanjufuhad/kuza-store",
     "note": "Next.js 14 · SSR & App Router"
@@ -191,7 +191,7 @@ export const techStackIcons = [
     "category": "Backend",
     "isLanguage": false,
     "projects": [
-      "TaxBridge"
+      "LocateAm"
     ],
     "github": "https://github.com/adeyanjufuhad",
     "note": "High-speed asynchronous Python"
@@ -217,7 +217,7 @@ export const techStackIcons = [
     "category": "Databases & DevOps",
     "isLanguage": false,
     "projects": [
-      "TaxBridge"
+      "Paraval"
     ],
     "github": "https://github.com/adeyanjufuhad",
     "note": "Postgres & Row Level Security"

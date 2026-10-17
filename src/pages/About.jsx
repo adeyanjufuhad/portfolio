@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { portfolioData } from '../data/portfolioData';
-import { scrollToId } from '../components/scroll';
+import { scrollToId, ParallaxReveal } from '../components/scroll';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 import { Polaroid, DropIn, StaggerText, Reveal } from '../components/motion';
@@ -93,14 +93,57 @@ export default function About() {
         </nav>
 
         <div className="mx-auto max-w-4xl">
-          <span className="mt-4 inline-block">
-            <StaggerText
-              text="ABOUT"
-              className="ca-display text-7xl leading-[0.9] tracking-tight text-[var(--ca-ink)] sm:text-9xl xl:text-[12rem] select-none"
-              stagger={0.06}
-              delay={0.05}
-            />
-          </span>
+          {/* Intro: title and highlights beside the main portrait */}
+          <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-[1fr_minmax(0,22rem)] md:gap-10">
+            <div>
+              <p className="ca-hand text-2xl text-[var(--ca-ink)] sm:text-3xl">hi, I'm Fuhad</p>
+              <span className="mt-2 inline-block">
+                <StaggerText
+                  text="ABOUT"
+                  className="ca-display text-7xl leading-[0.9] tracking-tight text-[var(--ca-ink)] sm:text-9xl xl:text-[11rem] select-none"
+                  stagger={0.06}
+                  delay={0.05}
+                />
+              </span>
+              <p className="mt-5 max-w-md text-lg leading-relaxed text-[var(--ca-ink)]/80 sm:text-xl">
+                Full stack developer and founder of <strong className="font-semibold text-[var(--ca-ink)]">Sova</strong> and{' '}
+                <strong className="font-semibold text-[var(--ca-ink)]">Edify</strong>. I build the button and the thing the button talks to.
+              </p>
+              <ul className="mt-7 flex flex-wrap gap-2.5" aria-label="Highlights">
+                {bio.milestones?.slice(0, 3).map((m, idx) => (
+                  <li
+                    key={m.title}
+                    className={`ca-mono inline-flex items-center gap-2 border-2 border-[var(--ca-ink)] px-3 py-1.5 text-[11px] font-bold uppercase tracking-widest text-[var(--ca-ink)] shadow-[2px_2px_0_var(--ca-ink)] ${idx % 2 ? 'rotate-1' : '-rotate-1'}`}
+                    style={{ backgroundColor: m.color }}
+                  >
+                    <span aria-hidden="true">{m.emoji}</span>
+                    {m.title}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {bio.portrait && (
+              <ParallaxReveal distance={24} className="mx-auto w-full max-w-[22rem]">
+                <DropIn rotate={2} y={-40}>
+                  <figure className="relative border-4 border-[var(--ca-ink)] bg-[var(--ca-ink)] shadow-[10px_12px_0_var(--ca-orange)]">
+                    <span aria-hidden="true" className="absolute -left-5 -top-3 z-10 h-6 w-24 -rotate-[14deg] bg-[var(--ca-yellow-soft)]/80 shadow-[0_1px_3px_rgba(17,18,18,0.2)]" />
+                    <span aria-hidden="true" className="absolute -right-5 -top-3 z-10 h-6 w-24 rotate-[14deg] bg-[var(--ca-cyan)]/80 shadow-[0_1px_3px_rgba(17,18,18,0.2)]" />
+                    <img
+                      src={bio.portrait.src}
+                      alt={bio.portrait.alt}
+                      className="aspect-[4/5] w-full object-cover object-top"
+                      fetchpriority="high"
+                    />
+                    <figcaption className="ca-mono flex items-center justify-between gap-3 bg-[var(--ca-ink)] px-4 py-3 text-[11px] font-bold uppercase tracking-widest text-white">
+                      <span>Adeyanju Fuhad</span>
+                      <span className="text-[var(--ca-yellow)]">Founder · Sova & Edify</span>
+                    </figcaption>
+                  </figure>
+                </DropIn>
+              </ParallaxReveal>
+            )}
+          </div>
 
           {/* Mobile Tabs */}
           <div className="mt-6 flex flex-wrap gap-2 lg:hidden">
@@ -205,10 +248,10 @@ export default function About() {
                 <DropIn rotate={6}>
                   <span className="block">
                     <Polaroid
-                      src={bio.photo?.[0]?.src}
-                      caption={bio.photo?.[0]?.caption || '2026 at OAU GDG build with AI'}
+                      src={bio.photo?.[1]?.src}
+                      caption={bio.photo?.[1]?.caption || '2026 at OAU GDG build with AI'}
                       photos={bio.photo}
-                      initialIndex={0}
+                      initialIndex={1}
                       tilt="rotate-0"
                       className="w-36 lg:w-44"
                     />
@@ -240,7 +283,7 @@ export default function About() {
             </span>
 
             <div className="ca-doodle-box relative mt-6 border-2 border-[var(--ca-cyan)] p-6 sm:p-10">
-              <div className="grid grid-cols-1 gap-6 sm:grid-cols-3">
+              <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
                 {bio.milestones?.map((m, idx) => (
                   <div
                     key={idx}

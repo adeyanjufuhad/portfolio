@@ -18,16 +18,11 @@
   - Displays 20+ technologies and programming languages actively used in Fuhad's production and open-source projects.
   - Built with official SVG brand paths and hex colors from [simple-icons](https://github.com/simple-icons/simple-icons).
   - Category filter tabs: `All [20]`, `Languages [7]`, `Frameworks [4]`, `Backend [3]`, `Databases & DevOps [6]`.
-  - Hover tooltips displaying project associations (`Blaze`, `Kuza Store`, `Trackr`, `TaxBridge`, `AgroFinis`, etc.) and direct links to GitHub repositories.
+  - Hover tooltips displaying project associations (`Sova`, `Edify`, `RepoSpec`, `Blaze`, `Kuza Store`, `AgroFinis`, etc.) and direct links to GitHub repositories.
 
-- **📁 Detailed Case Studies (`/case-study`)**
-  - Deep-dive architectural breakdowns into full-stack and fintech projects:
-    - **Blaze**: High-speed payment infrastructure bridging crypto assets and fiat currency.
-    - **Kuza Store**: Scalable multi-vendor e-commerce platform with real-time inventory and checkout.
-    - **Trackr**: Real-time personal financial analytics and expense tracking dashboard.
-    - **TaxBridge**: Automated tax calculation and compliance filing engine.
-    - **AgroFinis**: Agricultural financing platform connecting verified farmers with decentralized capital.
-    - **Luxe Estate**: Modern luxury real estate discovery and tour scheduling platform.
+- **📁 Searchable Project Collection (`/case-studies`)**
+  - 22 case studies with the challenge, approach and results for each, searchable by name or technology and filterable by category.
+  - Highlights include **Sova** (ajo and esusu savings circles on a tamper-evident ledger), **Edify** (SS1–SS3 exam prep), **CheckAm** (scam checker in English and Pidgin), **FastTrack** (loan pre-qualification) and **RepoSpec** (grounded repo context for AI coding assistants).
 
 - **📖 Story & Journey (`/about`)**
   - Personal narrative chronicling the evolution from self-taught beginnings to full-stack engineering at Oasis Infobyte.
@@ -147,12 +142,14 @@ The optimized production bundle will be generated in the `dist/` directory, read
 
 | Project | Description | Stack | Links |
 | :--- | :--- | :--- | :--- |
-| **Blaze** | Next-gen crypto & fiat financial settlement engine with real-time webhooks. | Next.js, TypeScript, Go, PostgreSQL | [GitHub](https://github.com/adeyanjufuhad/Blaze) |
-| **Kuza Store** | Production-ready multi-tenant e-commerce platform with automated order management. | React, Node.js, Express, MongoDB | [GitHub](https://github.com/adeyanjufuhad/kuza-store) |
-| **Trackr** | Personal finance intelligence and portfolio analytics tracker. | React, Tailwind CSS, REST APIs | [GitHub](https://github.com/adeyanjufuhad/Trackr) |
-| **TaxBridge** | Automated tax filing calculation system built for African freelancers and businesses. | TypeScript, React, Node.js | [GitHub](https://github.com/adeyanjufuhad) |
-| **AgroFinis** | Decentralized agri-fintech matching smallholder farmers to micro-investors. | React, Web3, Express, Tailwind CSS | [GitHub](https://github.com/adeyanjufuhad/AgroFinis) |
-| **Luxe Estate** | Curated luxury real estate discovery engine with interactive virtual tour scheduling. | React, JavaScript, Tailwind CSS | [GitHub](https://github.com/adeyanjufuhad/Luxe_Estate) |
+| **Sova** | Record keeper for ajo, esusu and adashe savings circles with a commit-reveal draw and SHA-256 ledger. Built for Devcenter Hacktober 2026. | Flutter, Node.js, PostgreSQL | [GitHub](https://github.com/adeyanjufuhad/Sova) |
+| **Edify** | Weekly lessons, self-marking practice and CBT tests for SS1–SS3 students. | Next.js, TypeScript, Neon | [GitHub](https://github.com/adeyanjufuhad/Edify) |
+| **CheckAm** | Free scam checker for Nigerian messages, links and screenshots, in English and Pidgin. | JavaScript, PWA, Tesseract.js | [GitHub](https://github.com/adeyanjufuhad/CheckAm) |
+| **FastTrack** | Five-minute onboarding and loan pre-qualification for Nigerian lenders. | Flutter, Neon, Node.js, Gemini | [GitHub](https://github.com/adeyanjufuhad/FastTrack) |
+| **RepoSpec** | Turns a GitHub repo into reviewable context for AI coding assistants. | Next.js, TypeScript | [GitHub](https://github.com/adeyanjufuhad/RepoSpec) |
+| **Blaze** | Pizza ordering platform with a custom pizza builder and real-time order tracking. | React, Node.js, MongoDB, Socket.io | [GitHub](https://github.com/adeyanjufuhad/Blaze) |
+| **Kuza Store** | Accessible monochrome streetwear storefront with a persistent cart. | Next.js, TypeScript, Tailwind CSS | [GitHub](https://github.com/adeyanjufuhad/kuza-store) |
+
 
 ---
 

@@ -6,7 +6,7 @@ export const portfolioData = {
   status: "Open to new builds",
   location: "Lagos, Nigeria",
   seo_title: "Adeyanju Fuhad – Full Stack Developer · Portfolio",
-  seo_description: "Full Stack Developer based in Lagos, Nigeria.",
+  seo_description: "Fuhad Adeyanju: full stack developer and founder of Sova and Edify. I build the button and the thing the button talks to.",
   hero: {
     nameDisplay: "FUHAD",
     label: "my name is",
@@ -14,7 +14,7 @@ export const portfolioData = {
     location: "Lagos, Nigeria",
     role: "Full Stack Developer",
     media: [
-      { src: "/images/fuhad-portrait.jpg" },
+      { src: "/images/fuhad-professional.jpg" },
       { src: "/images/fuhad-event.jpg" }
     ],
     notes: [
@@ -28,7 +28,15 @@ export const portfolioData = {
     label: "about me!",
     title: "About",
     badge: "what's up",
+    portrait: {
+      src: "/images/fuhad-professional.jpg",
+      alt: "Fuhad Adeyanju in a black kaftan with gold embroidery and a fila"
+    },
     photo: [
+      {
+        src: "/images/fuhad-professional.jpg",
+        caption: "Fuhad, founder of Sova & Edify"
+      },
       {
         src: "/images/fuhad-event.jpg",
         caption: "2026 at OAU GDG build with AI"
@@ -38,111 +46,121 @@ export const portfolioData = {
         caption: "late night builds"
       },
       {
-        src: "/projects/blaze-logo.png",
-        caption: "Blaze Pizza Platform"
+        src: "/projects/recent/sova.webp",
+        caption: "Sova · Hacktober 2026"
       },
       {
-        src: "/projects/kuza-logo.jpg",
-        caption: "Kuza Storefront"
+        src: "/projects/recent/edify.webp",
+        caption: "Edify · SS1–SS3 prep"
       },
       {
-        src: "/projects/luxe-estate.png",
-        caption: "Luxe Estate UK"
+        src: "/projects/checkam-home.jpg",
+        caption: "CheckAm"
       },
       {
-        src: "/projects/trackr-banner.jpg",
-        caption: "Trackr Fleet Dashboard"
-      },
-      {
-        src: "/projects/agrofinis-farm.png",
-        caption: "AgroFinis Agritech"
+        src: "/projects/fasttrack-result.jpg",
+        caption: "FastTrack"
       }
     ],
-    body: "Full stack engineer crafting production-grade web systems. Deeply invested in building responsive interfaces with zero layout shift, low-latency APIs, and scalable software that solves real problems.",
+    body: "I build the button and the thing the button talks to. Full stack developer and founder, shipping web and mobile products for problems I can see from my own street.",
     cardLabel: "Main bio",
-    story: "My path into software engineering began at Obafemi Awolowo University (OAU), where I'm studying Computer Engineering. Fascinated by how transistors and memory connect to high-level software, I spent my early university days experimenting with C, data structures, and web architectures—obsessed with understanding what happens under the hood when code executes.\n\nTo translate academic engineering foundations into industrial craft, I joined the intensive fullstack software engineering programme at Nupat Technologies. Immersed in fullstack architectures, reactive frontends, and database optimizations, I pushed my craft daily and graduated as the Best Graduating Student of the cohort.\n\nFrom there, I took that discipline into fast-paced production teams. During my internships at Arrowstack (frontend) and Oasis (full stack), I shipped real systems under tight sprint deadlines—architecting Kuza Store with strict WCAG AAA accessibility, building Trackr's real-time telemetry logistics dashboard, and engineering Blaze's interactive pizza customizer with bidirectional Socket.io kitchen synchronization.\n\nToday, I channel that drive into co-founding TaxBridge, developing an AI-driven tax compliance middleware tailored for Nigerian businesses, which earned a finalist qualification in Wema Bank's Hackaholics 7.0. Whether architecting a distributed backend or polishing a tactile micro-interaction, my philosophy remains constant: build software that is resilient, accessible, and extraordinarily fast.",
-    callout: "Currently co-founding TaxBridge (AI tax compliance middleware) & engineering scalable fullstack systems.",
-    note: "When not in VS Code, you'll find me sharing insights at GDG OAU (Build with AI 2026), reading about distributed systems, or exploring creative web design.",
+    story: "I'm Fuhad, a full stack developer and Computer Engineering student at Obafemi Awolowo University. I build for web and mobile, and I take product quality personally: clean UI, solid architecture, and code that actually ships.\n\nI learnt the craft properly at Nupat Technologies, where I finished as Best Graduating Student in 2024. Internships at Arrowstack and Oasis came next, and that's where Kuza, Trackr and Blaze went from tickets to production on real deadlines.\n\nMost of what I build now starts with something broken around me. Savings circles that run on memory and trust became Sova. Students guessing what to study this week became Edify. Scam messages forwarded into family group chats became CheckAm. Lenders retyping bank statements became FastTrack.\n\nI'm the founder of Sova and Edify, and I'm still the one writing the code, from the Postgres triggers to the last button state. Sova got me shortlisted as one of 30 developers selected to compete in Devcenter Hacktober 2026.\n\nIf you need someone who can own a feature end to end and talk clearly about it while doing it, that's me.",
+    callout: "Right now: building Sova and Edify, and open to full-time roles, freelance, contracts and collaborations.",
+    note: "When I'm not shipping, you'll find me at GDG OAU events like Build with AI 2026, reading about how systems fail, or redesigning something that already works because it could feel better.",
     storyLabel: "Principles",
     principles: [
       {
-        title: "Speed is a Feature",
-        body: "Whether shaving 40ms off a Socket.io event or eliminating layout shifts on a Next.js storefront, software should feel instant. Sluggish interfaces break immersion; speed builds trust.",
-        note: "0ms perceived latency",
+        title: "Ship it, then sharpen it",
+        body: "Code sitting in a branch helps nobody. I get a working version in front of real people early, then tighten it based on what they actually do, not what I guessed they would.",
+        note: "shipped beats perfect",
         color: "var(--ca-cyan)",
         rotate: "-rotate-1"
       },
       {
-        title: "Accessibility First",
-        body: "Building for the web means building for everyone. High contrast ratios, fluid keyboard navigation paths, and clean semantic landmarks aren't afterthoughts—they are the foundation of good product design.",
-        note: "WCAG AAA standards",
+        title: "Build for here first",
+        body: "Pidgin, bank SMS alerts, WhatsApp checkout, ajo circles. The best products fit how people already live, so I design for Lagos first. If it works here, it travels.",
+        note: "local context is a feature",
         color: "var(--ca-yellow-soft)",
         rotate: "rotate-1"
       },
       {
-        title: "Clean, Resilient Architecture",
-        body: "Code is read ten times more often than it's written. I write code that my future self—or a teammate debugging at 2 AM—can inspect, understand, and safely refactor with absolute confidence.",
-        note: "clarity over complexity",
+        title: "AI assists, it doesn't decide",
+        body: "When I use AI it extracts, explains or warns, and a rules engine or a person makes the final call. CheckAm can never call a message safe, and FastTrack's model never sets the loan amount.",
+        note: "trust is earned",
         color: "var(--ca-purple)",
         rotate: "-rotate-2"
       }
     ],
     milestones: [
       {
-        emoji: "🏆",
-        title: "Best Graduating Student",
-        desc: "Nupat Technologies Fullstack Software Training Programme",
-        year: "2024",
+        emoji: "🏁",
+        title: "Devcenter Hacktober 2026",
+        desc: "Shortlisted as one of 30 developers selected to compete. Built Sova for it.",
+        year: "2026",
         color: "var(--ca-yellow)",
         rotate: "-rotate-1"
       },
       {
-        emoji: "🚀",
-        title: "Hackaholics 7.0 Finalist",
-        desc: "Qualified as finalist in Wema Bank Hackathon with TaxBridge",
+        emoji: "🌱",
+        title: "Founder, Sova & Edify",
+        desc: "Two live products: savings circles on a tamper-evident ledger, and exam prep for SS1–SS3.",
         year: "2026",
+        color: "var(--ca-mint)",
+        rotate: "rotate-1"
+      },
+      {
+        emoji: "🏆",
+        title: "Best Graduating Student",
+        desc: "Nupat Technologies Fullstack Software Training Programme",
+        year: "2024",
         color: "var(--ca-cyan)",
         rotate: "rotate-1"
       },
       {
         emoji: "🤖",
         title: "GDG Build with AI",
-        desc: "Active participant & builder at OAU GDG Build with AI 2026",
+        desc: "Builder at GDG OAU Build with AI 2026",
         year: "2026",
-        color: "var(--ca-magenta)",
+        color: "var(--ca-pink-soft)",
         rotate: "-rotate-2"
       }
     ],
     stack: [
-      { category: "Frontend", items: ["React 19", "Next.js 14", "TypeScript", "Tailwind CSS", "Framer Motion", "Zustand"] },
+      { category: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "Flutter"] },
       { category: "Backend & APIs", items: ["Node.js", "Express", "Python", "FastAPI", "Socket.io", "REST APIs"] },
-      { category: "Databases & DevOps", items: ["MongoDB Atlas", "Supabase", "PostgreSQL", "Git/GitHub", "Vercel", "Render"] }
+      { category: "Databases & DevOps", items: ["PostgreSQL", "Neon", "Supabase", "MongoDB", "GitHub Actions", "Vercel"] }
     ],
     workLabel: "Experience",
     work: [
       {
-        role: "Co-founder",
-        company: "TaxBridge · AI Tax Middleware",
+        role: "Founder",
+        company: "Sova · Savings circles, on record",
         period: "2026 – Present",
-        note: "Qualified as Hackaholics 7.0 Finalist"
+        note: "Shortlisted for Devcenter Hacktober 2026"
+      },
+      {
+        role: "Founder",
+        company: "Edify · SS1–SS3 exam prep",
+        period: "2026 – Present",
+        note: "1,044+ practice questions, 44 lessons live"
       },
       {
         role: "Frontend Developer Intern",
-        company: "Arrowstack · Kuza Store & Trackr Logistics",
+        company: "Arrowstack · Kuza Store & Trackr",
         period: "2026",
-        note: "WCAG AAA E-commerce & Real-time Telemetry"
+        note: "Accessible e-commerce & logistics dashboard"
       },
       {
         role: "Fullstack Developer Intern",
         company: "Oasis · Blaze Platform",
         period: "2026",
-        note: "Full-Stack Real-time Socket.io Food Ordering Platform"
+        note: "Real-time Socket.io food ordering platform"
       },
       {
-        role: "Fullstack Trainee (Best Graduating Student)",
+        role: "Fullstack Trainee",
         company: "Nupat Technologies",
         period: "2024",
-        note: "Valedictorian / Top Cohort Performer"
+        note: "Best Graduating Student"
       },
       {
         role: "B.Sc. Computer Engineering",
@@ -595,9 +613,9 @@ export const portfolioData = {
       {
         id: "item-portrait",
         title: "Adeyanju Fuhad",
-        note: "Late night builds · Full Stack",
+        note: "Founder · Sova & Edify",
         color: "var(--ca-yellow)",
-        img: "/images/fuhad-portrait.jpg",
+        img: "/images/fuhad-professional.jpg",
         isLogo: false,
         rotate: 2,
         badgeRotate: -4,
@@ -640,7 +658,7 @@ export const portfolioData = {
     title: "Let's talk",
     comment: {
       author: "Satisfied Collaborator",
-      avatar: "/images/fuhad-portrait.jpg",
+      avatar: "/images/fuhad-professional.jpg",
       note: "Adeyanju built our core features ahead of schedule and with incredible attention to detail.",
       reactions: 1
     },
@@ -655,15 +673,15 @@ export const portfolioData = {
     pdfUrl: "/Adeyanju_Fuhad_Resume.pdf",
     filename: "Adeyanju_Fuhad_Resume.pdf",
     name: "Adeyanju Fuhad",
-    headline: "Fullstack Developer — React · Next.js · Node.js · TypeScript · Python · Flutter",
+    headline: "Full Stack Developer & Founder — React · Next.js · Node.js · TypeScript · Python · Flutter",
     location: "Lagos, Nigeria",
     phone: "07049294736",
     email: "adeyanjufuhad@gmail.com",
     github: "github.com/adeyanjufuhad",
     githubUrl: "https://github.com/adeyanjufuhad",
-    linkedin: "linkedin.com/in/adeyanjufuhad",
-    linkedinUrl: "https://linkedin.com/in/adeyanjufuhad",
-    summary: "Fullstack developer with hands-on experience shipping production web and mobile applications across frontend and backend stacks. Completed internships at Arrowstack and Oasis, delivering three live products — Blaze, Kuza, and Trackr. Built FastTrack, a Flutter and Neon loan pre-qualification app for Nigerian lenders that pairs Gemini document extraction with a deterministic rules engine, and CheckAm, a free scam checker for Nigerian messages and links that explains its findings in English and Pidgin. Co-founded TaxBridge, Nigeria's AI-powered tax compliance middleware platform, serving as ML Engineer and Infrastructure Lead. Trained at Nupat Technologies (Best Graduating Student). Currently pursuing a B.Sc. in Computer Engineering at Obafemi Awolowo University.",
+    linkedin: "linkedin.com/in/adeyanju-fuhad-206802320",
+    linkedinUrl: "https://www.linkedin.com/in/adeyanju-fuhad-206802320/",
+    summary: "Full stack developer and founder who builds web and mobile products end to end, from Postgres triggers to the last button state. Founder of Sova, a tamper-evident record keeper for ajo and esusu savings circles that earned a place among 30 developers shortlisted to compete in Devcenter Hacktober 2026, and Edify, a study platform for Nigerian senior secondary students with 1,044+ practice questions. Shipped Blaze, Kuza and Trackr during internships at Oasis and Arrowstack, and built CheckAm and FastTrack, AI-assisted products where a rules engine, not the model, makes the final call. Best Graduating Student at Nupat Technologies; B.Sc. Computer Engineering in progress at Obafemi Awolowo University.",
     technicalSkills: [
       {
         category: "Frontend",
@@ -688,15 +706,26 @@ export const portfolioData = {
     ],
     experience: [
       {
-        company: "TaxBridge",
-        role: "Co-founder, ML Engineer & Infrastructure Lead",
+        company: "Sova",
+        role: "Founder & Lead Engineer",
         period: "2026 – Present",
-        location: "Lagos, Nigeria",
-        tagline: "AI-powered Tax Compliance Middleware",
+        location: "Nigeria",
+        tagline: "Ajo & esusu savings circles, on record",
         highlights: [
-          "Architecting Nigeria's first AI-powered tax compliance middleware platform integrating with FIRS data systems.",
-          "Leading ML pipeline design and cloud infrastructure for automated VAT, WHT, and CIT reconciliation.",
-          "Building FastAPI microservices backend and React dashboard for real-time compliance monitoring."
+          "Built a Flutter app (web and Android) and a Node.js API on PostgreSQL 17, where joining, draws, payments, disputes and the ledger all run as database functions and triggers.",
+          "Designed a commit-reveal payout draw and a per-circle SHA-256 hash chain; a GitHub Actions job publishes chain checkpoints every 6 hours and a public page re-verifies any circle in the browser.",
+          "Shortlisted as one of 30 developers selected to compete in Devcenter Hacktober 2026 with Sova."
+        ]
+      },
+      {
+        company: "Edify",
+        role: "Founder & Engineer",
+        period: "2026 – Present",
+        location: "Nigeria",
+        tagline: "Weekly lessons & exam practice for SS1–SS3",
+        highlights: [
+          "Built and launched a Next.js and Neon Postgres study platform with weekly notes, self-marking practice and timed CBT tests: 1,044+ practice questions and 44 lessons live, with plans from ₦1,000.",
+          "Designed a typed curriculum registry so adding a lesson updates the dashboard, lesson pages, \"up next\" links and the progress API with no route changes."
         ]
       },
       {
@@ -706,8 +735,8 @@ export const portfolioData = {
         location: "Remote",
         tagline: "Product Internship",
         highlights: [
-          "Delivered Kuza (Next.js e-commerce storefront) with WCAG-compliant accessibility and persistent cart logic.",
-          "Built Trackr, a real-time logistics dashboard with Recharts analytics, sort/filter/pagination, and alerts centre."
+          "Delivered Kuza, a Next.js e-commerce storefront with accessible keyboard navigation and persistent cart logic.",
+          "Built Trackr, a logistics dashboard with Recharts analytics, sort/filter/pagination and an alerts centre."
         ]
       },
       {
@@ -718,7 +747,7 @@ export const portfolioData = {
         tagline: "Product Internship",
         highlights: [
           "Shipped Blaze, a full-stack pizza ordering platform with real-time order tracking via Socket.io and Razorpay payments.",
-          "Implemented JWT auth flow with email verification, password reset, Cloudinary image uploads, and admin inventory dashboard."
+          "Implemented JWT auth with email verification and password reset, Cloudinary image uploads and an admin inventory dashboard."
         ]
       }
     ],
@@ -731,8 +760,8 @@ export const portfolioData = {
         stack: "JavaScript · PWA · Tesseract.js · Cloudflare Pages / Vercel Functions · Groq · Workers AI | 2026",
         highlights: [
           "Installable, framework-free web app that checks pasted messages, screenshots and links for Nigerian scam patterns and explains every finding in English or Nigerian Pidgin.",
-          "On-device rules engine (31 scam-script rules, 59 official organisations for lookalike-domain detection) keeps messages private; only links go to a serverless checker for domain age, Safe Browsing, URLhaus and short-link expansion.",
-          "Optional AI check (Groq with Cloudflare Workers AI fallback) guarded so it can only raise a warning, never say \"safe\"; 108 tests including a corpus of 44 real-world scam types."
+          "On-device rules engine (31 scam-script rules, 59 official organisations for lookalike-domain detection) keeps messages private; only links go to a serverless checker.",
+          "Optional AI check guarded so it can only raise a warning, never say \"safe\"; 108 tests including a corpus of 44 real-world scam types."
         ]
       },
       {
@@ -742,20 +771,41 @@ export const portfolioData = {
         githubUrl: "https://github.com/adeyanjufuhad/FastTrack",
         stack: "Flutter · Dart · Neon (Postgres, Auth, Storage, Functions) · Node.js / TypeScript · Gemini · GitHub Actions | 2026",
         highlights: [
-          "Five-minute applicant flow (sandbox BVN/NIN check, ID and statement upload or bank-SMS paste, e-signature) that returns a pre-qualified amount and tier; officer dashboard with a scored file and approve / more-info / decline actions.",
-          "Gemini extracts income and spending from documents while a deterministic rules engine sets the amount, so the AI never decides; a model-fallback chain keeps scoring up, with results in about 3 seconds.",
-          "Neon backend with server-side access rules, Ed25519 JWT verification and private storage behind 10-minute presigned links; 97 tests and CI/CD that ships GitHub Pages, the Android APK and the Neon Function."
+          "Five-minute applicant flow that returns a pre-qualified amount and tier, plus an officer dashboard with approve / more-info / decline actions.",
+          "Gemini extracts income and spending from documents while a deterministic rules engine sets the amount, with results in about 3 seconds.",
+          "Server-side access rules, Ed25519 JWT verification and private storage behind 10-minute presigned links; 97 tests and full CI/CD."
+        ]
+      },
+      {
+        title: "RepoSpec — Grounded Repo Context for AI Coding Assistants",
+        isLive: true,
+        liveUrl: "https://repospec.vercel.app",
+        githubUrl: "https://github.com/adeyanjufuhad/RepoSpec",
+        stack: "Next.js · TypeScript · Static parsing · GitHub App · Vitest | 2026",
+        highlights: [
+          "Extracts database models, API routes, exported types and architecture rules from any GitHub commit with static parsing, no AI model.",
+          "Token-weighted treemap, per-file toggles and a 100–20,000 token budget; exports .ai-context.md, .cursorrules or CLAUDE.md."
+        ]
+      },
+      {
+        title: "Big Apple Beauty — Wholesale Storefront with WhatsApp Checkout",
+        isLive: true,
+        liveUrl: "https://bigapplebeauty.store",
+        githubUrl: "https://github.com/adeyanjufuhad/big-apple-world",
+        stack: "Next.js · Tailwind CSS · Neon Postgres · Cloudflare Workers | Client project, 2026",
+        highlights: [
+          "Storefront and owner admin for a Lagos beauty wholesaler; checkout sends the cart to WhatsApp and logs a pending order.",
+          "Server-side price lookups, a restricted database role and privacy-friendly analytics, served from Cloudflare Workers on the client's domain."
         ]
       },
       {
         title: "Blaze — Pizza Ordering & Delivery Platform",
         isLive: true,
-        liveUrl: "https://blaze-pizza.vercel.app",
+        liveUrl: "https://client-ten-psi-50.vercel.app",
         githubUrl: "https://github.com/adeyanjufuhad/Blaze",
         stack: "React · Node.js · Express · MongoDB · Socket.io · Razorpay | Oasis Internship",
         highlights: [
           "Full-stack food ordering platform with a 4-step custom pizza builder and real-time order status tracking via Socket.io.",
-          "Integrated Razorpay payments, JWT auth with email verification and password reset, and Cloudinary image uploads.",
           "Admin dashboard with inventory management and automated low-stock email alerts via node-cron."
         ]
       },
@@ -766,20 +816,7 @@ export const portfolioData = {
         githubUrl: "https://github.com/adeyanjufuhad/kuza-store",
         stack: "Next.js 14 · TypeScript · Tailwind CSS · shadcn/ui | Arrowstack Internship",
         highlights: [
-          "Accessible e-commerce storefront with product filters, sort, persistent cart via Context API, and full checkout flow.",
-          "WCAG-compliant keyboard navigation, responsive mobile layout, and complete loading/error/empty state handling."
-        ]
-      },
-      {
-        title: "Trackr — Logistics Operations Dashboard",
-        isLive: true,
-        liveUrl: "https://trackr-logistics.vercel.app",
-        githubUrl: "https://github.com/adeyanjufuhad/Trackr",
-        stack: "React 18 · TypeScript · Tailwind CSS · Recharts · shadcn/ui | Arrowstack Internship",
-        highlights: [
-          "Real-time logistics dashboard for tracking shipments, drivers, and KPIs with trend indicators.",
-          "Shipments table with sort, filter, and pagination; line and bar charts for delivery analytics via Recharts.",
-          "Alerts centre with Critical/Warning/Info severity levels, drivers overview, and collapsible responsive sidebar."
+          "Accessible storefront with product filters, sort, persistent cart and full checkout flow, plus loading, error and empty states."
         ]
       },
       {
@@ -789,19 +826,7 @@ export const portfolioData = {
         githubUrl: "https://github.com/adeyanjufuhad/AgroFinis",
         stack: "React · Supabase · FastAPI | 2026 – Present",
         highlights: [
-          "Real-time weather data, AI crop advisory, and commodity market listings for Nigerian farmers.",
-          "Listed on Orynth (Solana-based product discovery) under ticker AGRF; live at agrofinis.com.ng."
-        ]
-      },
-      {
-        title: "Luxe Estate — UK Luxury Real Estate Portal",
-        isLive: true,
-        liveUrl: "https://luxe-estate.vercel.app",
-        githubUrl: "https://github.com/adeyanjufuhad/Luxe_Estate",
-        stack: "React · Node.js · MongoDB · Tailwind CSS | 2026",
-        highlights: [
-          "Full-stack luxury property listing portal for the UK market with property search, filters, and detailed listing views.",
-          "Built a Node.js / MongoDB backend for property data management with a fully responsive React frontend."
+          "Real-time weather data, AI crop advisory and commodity market listings for Nigerian farmers; listed on Orynth under ticker AGRF."
         ]
       }
     ],
@@ -814,13 +839,23 @@ export const portfolioData = {
     ],
     achievements: [
       {
+        title: "Shortlisted Developer — Devcenter Hacktober 2026",
+        issuer: "One of 30 developers selected to compete; built Sova",
+        year: "2026"
+      },
+      {
+        title: "Founder of Sova and Edify",
+        issuer: "Two products designed, built and launched end to end",
+        year: "2026"
+      },
+      {
         title: "Best Graduating Student",
         issuer: "Nupat Technologies Fullstack Training Programme",
         year: "2024"
       },
       {
-        title: "Qualified for Hackaholics 7.0",
-        issuer: "Wema Bank hackathon, Grand Pitch Day at YABATECH, Lagos",
+        title: "Builder, GDG OAU Build with AI",
+        issuer: "Google Developer Groups, Obafemi Awolowo University",
         year: "2026"
       }
     ],
