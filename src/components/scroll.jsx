@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Lenis from 'lenis';
-import { motion, useReducedMotion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion';
 
 let lenis = null;
 
@@ -31,19 +31,6 @@ export function scrollToId(id, offset = -96) {
   if (!element) return;
   if (lenis) lenis.scrollTo(element, { offset });
   else element.scrollIntoView({ behavior: prefersReducedMotion() ? 'auto' : 'smooth' });
-}
-
-// Thin reading-progress bar pinned to the top of the viewport.
-export function ScrollProgress() {
-  const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, { stiffness: 140, damping: 30, restDelta: 0.001 });
-  return (
-    <motion.div
-      aria-hidden="true"
-      className="fixed inset-x-0 top-0 z-[70] h-1.5 origin-left bg-[var(--ca-orange)]"
-      style={{ scaleX }}
-    />
-  );
 }
 
 function RevealWord({ children, progress, range }) {

@@ -10,7 +10,7 @@ import Playground from './pages/Playground';
 import Contact from './pages/Contact';
 import Resume from './pages/Resume';
 import ClickSpark from './components/bits/ClickSpark';
-import { SmoothScroll, ScrollProgress, scrollToTop } from './components/scroll';
+import { SmoothScroll, scrollToTop } from './components/scroll';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -36,7 +36,6 @@ export default function App() {
       className="min-h-screen flex flex-col"
     >
       <SmoothScroll />
-      <ScrollProgress />
       <div className="min-h-screen flex flex-col relative">
         {/* Fractal Paper Noise Texture Overlay */}
         <div aria-hidden="true" className="ca-grain pointer-events-none fixed inset-0 z-[1] mix-blend-multiply" />
