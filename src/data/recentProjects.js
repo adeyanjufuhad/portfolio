@@ -8,7 +8,7 @@ const FACT_STYLES = [
   { color: "var(--ca-purple)", rotate: "rotate-1", clip: "ca-clip-blob-3" },
 ];
 
-function project({ slug, cover, alt, facts, problem, solution, result, results, ...rest }) {
+export function project({ slug, cover, alt, facts, problem, solution, result, results, ...rest }) {
   return {
     slug,
     textColor: "text-white",

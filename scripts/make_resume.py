@@ -57,6 +57,8 @@ S = {
 def esc(t):
     # Helvetica has no naira glyph, so spell the currency out.
     t = t.replace("₦", "NGN ")
+    # Nor the Yoruba subdot letters, so Ṣòwò is written as its repo name.
+    t = t.replace("Ṣòwò", "Sowo").replace("Ṣ", "S").replace("ṣ", "s")
     return t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
