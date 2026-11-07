@@ -35,7 +35,7 @@ Added on 2026-11-04 in `src/data/latestProjects.js`. Ṣòwò and Canary lead th
 | Chapelhill | [chapelhill-web](https://github.com/adeyanjufuhad/chapelhill-web) | README and HANDOFF.md (features, PageSpeed results of 18 Oct 2026) |
 | BrainField Schools | [BrainField-Schools](https://github.com/adeyanjufuhad/BrainField-Schools) | README (scope table, project status) |
 
-Ṣòwò's 200 tests are the README's count at the time of writing (6 shared, 19 web, 175 API). Devcenter Hacktober results were still pending at the time of this update. On the PDF resume, Ṣòwò is spelt "Sowo" because Helvetica has no glyph for Ṣ.
+Ṣòwò's 200 tests are the README's count at the time of writing (6 shared, 19 web, 175 API). Sova took second place at Devcenter Hacktober 2026 (demo day, 7 November 2026). On the PDF resume, Ṣòwò is spelt "Sowo" because Helvetica has no glyph for Ṣ.
 
 Result figures are taken from the README or the live product: for example Edify's question and lesson counts and the CSCA 90+ question count are read from their live homepages, and LocateAm's 704/708 figure is the Ikeja dry-run import recorded in its README. No user counts, revenue, accuracy or latency numbers were invented. Live links point at each project's current production URL (Big Apple Beauty now serves from bigapplebeauty.store). A live link does not guarantee that a free-tier backend is awake: Sova's services sleep when idle and take a few seconds to wake.
 
