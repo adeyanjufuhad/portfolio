@@ -7,7 +7,7 @@ export const portfolioData = {
   status: "Open to new builds",
   location: "Lagos, Nigeria",
   seo_title: "Adeyanju Fuhad – Full Stack Developer · Portfolio",
-  seo_description: "Fuhad Adeyanju: full stack developer, founder of Sova and Edify, and first-place winner of OPEN//BUILD 2026 with Ṣòwò, and second at Devcenter Hacktober 2026 with Sova. I build the button and the thing the button talks to.",
+  seo_description: "Fuhad Adeyanju: full stack developer, founder of Sova and Edify, and a 2× hackathon winner: 1st at OPEN//BUILD 2026 with Ṣòwò and 2nd at Devcenter Hacktober 2026 with Sova. I build the button and the thing the button talks to.",
   hero: {
     nameDisplay: "FUHAD",
     label: "my name is",
@@ -69,7 +69,7 @@ export const portfolioData = {
     ],
     body: "I build the button and the thing the button talks to. Full stack developer and founder, shipping web and mobile products for problems I can see from my own street.",
     cardLabel: "Main bio",
-    story: "I'm Fuhad, a full stack developer and Computer Engineering student at Obafemi Awolowo University. I build for web and mobile, and I take product quality personally: clean UI, solid architecture, and code that actually ships.\n\nI learnt the craft properly at Nupat Technologies, where I finished as Best Graduating Student in 2024. Internships at Arrowstack and Oasis came next, and that's where Kuza, Trackr and Blaze went from tickets to production on real deadlines.\n\nMost of what I build now starts with something broken around me. Savings circles that run on memory and trust became Sova. Students guessing what to study this week became Edify. Scam messages forwarded into family group chats became CheckAm. Lenders retyping bank statements became FastTrack. Vendors losing sales to slow WhatsApp replies became Ṣòwò, which took first place at OSCA Ile-Ife's OPEN//BUILD 2026 hackathon.\n\nI'm the founder of Sova and Edify, and I'm still the one writing the code, from the Postgres triggers to the last button state. Sova took second place at Devcenter Hacktober 2026, where I was one of 30 developers selected to compete. I also build tools for other developers: Astrolabe catches design-system drift before it ships, and Canary sets AI agents loose on your business rules on every pull request.\n\nIf you need someone who can own a feature end to end and talk clearly about it while doing it, that's me.",
+    story: "I'm Fuhad, a full stack developer and Computer Engineering student at Obafemi Awolowo University. I build for web and mobile, and I take product quality personally: clean UI, solid architecture, and code that actually ships.\n\nI learnt the craft properly at Nupat Technologies, where I finished as Best Graduating Student in 2024. Internships at Arrowstack and Oasis came next, and that's where Kuza, Trackr and Blaze went from tickets to production on real deadlines.\n\nMost of what I build now starts with something broken around me. Savings circles that run on memory and trust became Sova. Students guessing what to study this week became Edify. Scam messages forwarded into family group chats became CheckAm. Lenders retyping bank statements became FastTrack. Vendors losing sales to slow WhatsApp replies became Ṣòwò, which took first place at OSCA Ile-Ife's OPEN//BUILD 2026 hackathon.\n\nI'm the founder of Sova and Edify, and I'm still the one writing the code, from the Postgres triggers to the last button state. Sova got me selected as one of 30 developers to compete in Devcenter Hacktober 2026, and it took second place, which makes me a two-time hackathon winner this year. I also build tools for other developers: Astrolabe catches design-system drift before it ships, and Canary sets AI agents loose on your business rules on every pull request.\n\nIf you need someone who can own a feature end to end and talk clearly about it while doing it, that's me.",
     callout: "Right now: building Sova and Edify, competing in Flip the Switch with Canary, and open to full-time roles, freelance, contracts and collaborations.",
     note: "When I'm not shipping, you'll find me at GDG OAU events like Build with AI 2026, reading about how systems fail, or redesigning something that already works because it could feel better.",
     storyLabel: "Principles",
@@ -108,7 +108,7 @@ export const portfolioData = {
       {
         emoji: "🥈",
         title: "2nd Place, Devcenter Hacktober 2026",
-        desc: "Took second place with Sova, a tamper-evident record keeper for savings circles, among 30 selected developers.",
+        desc: "Took second place with Sova, a record keeper for ajo and esusu savings circles, competing as one of 30 selected developers.",
         year: "2026",
         color: "var(--ca-yellow)",
         rotate: "-rotate-1"
@@ -149,7 +149,7 @@ export const portfolioData = {
         role: "Founder",
         company: "Sova · Savings circles, on record",
         period: "2026 – Present",
-        note: "2nd Place, Devcenter Hacktober 2026"
+        note: "2nd place, Devcenter Hacktober 2026"
       },
       {
         role: "Founder",
@@ -694,7 +694,7 @@ export const portfolioData = {
     pdfUrl: "/Adeyanju_Fuhad_Resume.pdf",
     filename: "Adeyanju_Fuhad_Resume.pdf",
     name: "Adeyanju Fuhad",
-    headline: "Full Stack Developer · Founder of Sova & Edify · 1st Place, OPEN//BUILD 2026",
+    headline: "Full Stack Developer · Founder of Sova & Edify · 2× Hackathon Winner",
     location: "Lagos, Nigeria",
     phone: "+234 704 929 4736",
     email: "adeyanjufuhad@gmail.com",
@@ -705,7 +705,7 @@ export const portfolioData = {
     linkedin: "linkedin.com/in/adeyanju-fuhad-206802320",
     linkedinUrl: "https://www.linkedin.com/in/adeyanju-fuhad-206802320/",
     openTo: "Open to full-time roles: remote (worldwide) or on-site / hybrid in Lagos · freelance & contract",
-    summary: "Full stack developer who ships web and mobile products end to end, from database design to the last UI state. Founder of Sova and Edify; won 1st place at OPEN//BUILD 2026 with Ṣòwò and 2nd place at Devcenter Hacktober 2026 with Sova. Works across React, Next.js, Node.js, Python (FastAPI), Go, Flutter and PostgreSQL, and backs production work with automated tests and CI/CD.",
+    summary: "Full stack developer who ships web and mobile products end to end, from database design to the last UI state. Founder of Sova and Edify, and a 2× hackathon winner: 1st place at OPEN//BUILD 2026 with Ṣòwò and 2nd place at Devcenter Hacktober 2026 with Sova. Works across React, Next.js, Node.js, Python (FastAPI), Go, Flutter and PostgreSQL, and backs production work with automated tests and CI/CD.",
     technicalSkills: [
       {
         category: "Languages",
@@ -739,7 +739,7 @@ export const portfolioData = {
         role: "Founder & Lead Engineer",
         period: "2026 – Present",
         location: "Nigeria",
-        tagline: "Savings-circle records for ajo, esusu and adashe groups",
+        tagline: "Savings-circle records for ajo, esusu and adashe groups · 2nd place, Devcenter Hacktober 2026",
         url: "https://sova.rumptycloud.app",
         highlights: [
           "Built and launched a Flutter app (web, Android) and Node.js API that keeps a tamper-evident record of savings circles.",
@@ -850,8 +850,8 @@ export const portfolioData = {
         year: "2026"
       },
       {
-        title: "2nd Place — Devcenter Hacktober 2026 Hackathon",
-        issuer: "Won with Sova, among 30 selected developers",
+        title: "2nd Place — Devcenter Hacktober 2026",
+        issuer: "Won with Sova, competing as one of 30 selected developers",
         year: "2026"
       },
       {

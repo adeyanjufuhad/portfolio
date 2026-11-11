@@ -22,7 +22,7 @@
 
 - **📁 Searchable Project Collection (`/case-studies`)**
   - 29 case studies with the challenge, approach and results for each, searchable by name or technology and filterable by category.
-  - Highlights include **Ṣòwò** (first place at OPEN//BUILD 2026: an AI sales assistant for WhatsApp vendors), **Canary** (AI agents that test business rules on every PR), **Astrolabe** (design-token drift checker in Go), **Sova** (ajo and esusu savings circles on a tamper-evident ledger), **Edify** (SS1–SS3 exam prep), **CheckAm** (scam checker in English and Pidgin), **FastTrack** (loan pre-qualification) and **RepoSpec** (grounded repo context for AI coding assistants).
+  - Highlights include **Ṣòwò** (first place at OPEN//BUILD 2026: an AI sales assistant for WhatsApp vendors), **Canary** (AI agents that test business rules on every PR), **Astrolabe** (design-token drift checker in Go), **Sova** (second place at Devcenter Hacktober 2026: ajo and esusu savings circles on a tamper-evident ledger), **Edify** (SS1–SS3 exam prep), **CheckAm** (scam checker in English and Pidgin), **FastTrack** (loan pre-qualification) and **RepoSpec** (grounded repo context for AI coding assistants).
 
 - **📖 Story & Journey (`/about`)**
   - Personal narrative chronicling the evolution from self-taught beginnings to full-stack engineering at Oasis Infobyte.

@@ -35,7 +35,7 @@ export const recentProjects = [
   project({
     slug: "sova",
     title: "Sova",
-    subtitle: "Ajo & Esusu Savings Circles, On Record",
+    subtitle: "Ajo & Esusu Savings Circles, On Record · 2nd Place, Devcenter Hacktober 2026",
     description: "Sova keeps the record for ajo, esusu and adashe savings circles: who joined, who collects when, who has paid and who has confirmed, on a tamper-evident ledger anyone can verify. Sova never touches the money.",
     category: "Fintech",
     tags: ["Flutter", "Dart", "Node.js", "PostgreSQL 17", "Next.js", "GitHub Actions"],
@@ -44,10 +44,10 @@ export const recentProjects = [
     liveUrl: "https://sova.rumptycloud.app",
     githubUrl: "https://github.com/adeyanjufuhad/Sova",
     alt: "Sova landing page: 'Your ajo, on record.' beside a phone showing a savings circle's payments",
-    facts: [["Role", "Full Stack Engineer"], ["Award", "2nd Place, Devcenter Hacktober"], ["Year", "2026"]],
+    facts: [["Role", "Full Stack Engineer"], ["Hackathon", "2nd Place · Devcenter Hacktober"], ["Year", "2026"]],
     problem: "Millions of Nigerians save through ajo and esusu circles, and they run on trust and memory. When a member says \"I sent it\", collects early and stops paying, or disputes the payout order, there is no shared record to settle it. Apps that hold the pot ask circles to hand their money to a stranger.",
     solution: "Built a Flutter app (web and Android) on a Node.js API where Sova keeps the record and never the money. The payout order is drawn by commit-reveal, so anyone can recompute it. Members mark \"I sent it\" with a bank reference, the collector confirms, and shortfalls open disputes the circle votes on. Database triggers write every change into a per-circle SHA-256 hash chain, and a GitHub Actions job publishes chain checkpoints every 6 hours.",
-    result: "Live on web and Android, with a one-tap private demo for every visitor and a public verify page that rechecks a circle's whole chain and draw in the browser. Members also build a Sova Score from on-time payments that they can share.",
+    result: "Live on web and Android, with a one-tap private demo for every visitor and a public verify page that rechecks a circle's whole chain and draw in the browser. Members also build a Sova Score from on-time payments that they can share. Took second place at Devcenter Hacktober 2026.",
     results: [
       ["Commit-reveal", "Fair draw", "Payout order anyone can recompute"],
       ["Every 6h", "Ledger anchors", "Chain heads published to a public branch"],
