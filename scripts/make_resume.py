@@ -1,20 +1,22 @@
 """Rebuild the portfolio resume PDF (public/resume.pdf and public/Adeyanju_Fuhad_Resume.pdf).
 
-A one-page, ATS-friendly A4 layout: single column, standard section names, real text (no icon fonts),
-dates right-aligned so a recruiter can skim roles in seconds.
+A one-page, ATS-friendly A4 layout in the classic LaTeX resume style: Computer Modern (CMU Serif), black on white,
+small-caps section titles over a full-width rule, bold titles with right-aligned dates and italic sub-lines.
 Content is read from the resume section of src/data/portfolioData.js, so the PDF and the /resume page stay in sync.
 Usage: python scripts/make_resume.py public/resume.pdf && cp public/resume.pdf public/Adeyanju_Fuhad_Resume.pdf
-Requires: pip install reportlab, and Node.js on the PATH.
+Requires: pip install reportlab, and Node.js on the PATH. Fonts live in scripts/fonts (SIL OFL, see OFL.txt).
 """
 import json
 import subprocess
 import sys
 from pathlib import Path
 
-from reportlab.lib.colors import HexColor
+from reportlab.lib.colors import black
 from reportlab.lib.enums import TA_CENTER, TA_RIGHT
 from reportlab.lib.pagesizes import A4
 from reportlab.lib.styles import ParagraphStyle
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
 from reportlab.platypus import HRFlowable, KeepTogether, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 OUT = sys.argv[1]
@@ -25,54 +27,62 @@ R = json.loads(subprocess.run(
      (ROOT / "src" / "data" / "portfolioData.js").as_uri()],
     check=True, capture_output=True, text=True, encoding="utf-8").stdout)
 
-NAVY = HexColor("#111827")
-BLUE = HexColor("#1d4ed8")
-BODY = HexColor("#1f2937")
-MUTED = HexColor("#4b5563")
-RULE = HexColor("#cbd5e1")
+# Computer Modern Unicode Serif, the default LaTeX typeface.
+FONTS = ROOT / "scripts" / "fonts"
+for name, file in [("CM", "500-roman"), ("CM-Bold", "700-roman"), ("CM-Italic", "500-italic"), ("CM-BoldItalic", "700-italic")]:
+    pdfmetrics.registerFont(TTFont(name, str(FONTS / f"cmu-serif-{file}.ttf")))
+pdfmetrics.registerFontFamily("CM", normal="CM", bold="CM-Bold", italic="CM-Italic", boldItalic="CM-BoldItalic")
 
-MARGIN_X = 40
-MARGIN_Y = 32
+MARGIN_X = 30
+MARGIN_Y = 26
 # The page frame keeps 6pt of padding on each side.
 WIDTH = A4[0] - 2 * MARGIN_X - 12
 
+BODY = 8.7
+
+
+def style(name, font="CM", size=BODY, leading=None, align=0, **kw):
+    return ParagraphStyle(name, fontName=font, fontSize=size, leading=leading or size * 1.22,
+                          textColor=black, alignment=align, **kw)
+
+
 S = {
-    "name": ParagraphStyle("name", fontName="Helvetica-Bold", fontSize=20, leading=23, textColor=NAVY, alignment=TA_CENTER),
-    "headline": ParagraphStyle("headline", fontName="Helvetica-Bold", fontSize=10, leading=13, textColor=BLUE, alignment=TA_CENTER),
-    "contact": ParagraphStyle("contact", fontName="Helvetica", fontSize=8, leading=11, textColor=BODY, alignment=TA_CENTER),
-    "openTo": ParagraphStyle("openTo", fontName="Helvetica-Oblique", fontSize=7.8, leading=10.5, textColor=MUTED, alignment=TA_CENTER),
-    "section": ParagraphStyle("section", fontName="Helvetica-Bold", fontSize=9, leading=11, textColor=BLUE),
-    "body": ParagraphStyle("body", fontName="Helvetica", fontSize=8.3, leading=11.2, textColor=BODY),
-    "skillLabel": ParagraphStyle("skillLabel", fontName="Helvetica-Bold", fontSize=8, leading=10.5, textColor=NAVY),
-    "skillValue": ParagraphStyle("skillValue", fontName="Helvetica", fontSize=8, leading=10.5, textColor=BODY),
-    "title": ParagraphStyle("title", fontName="Helvetica-Bold", fontSize=9, leading=11.5, textColor=NAVY),
-    "right": ParagraphStyle("right", fontName="Helvetica-Bold", fontSize=8, leading=11.5, textColor=NAVY, alignment=TA_RIGHT),
-    "meta": ParagraphStyle("meta", fontName="Helvetica-Oblique", fontSize=7.8, leading=10, textColor=MUTED),
-    "metaRight": ParagraphStyle("metaRight", fontName="Helvetica", fontSize=7.8, leading=10, textColor=BLUE, alignment=TA_RIGHT),
-    "bullet": ParagraphStyle("bullet", fontName="Helvetica", fontSize=8.2, leading=10.9, textColor=BODY,
-                             leftIndent=10, firstLineIndent=-8, spaceBefore=1.4),
+    "name": style("name", "CM-Bold", 16, 19, TA_CENTER),
+    "headline": style("headline", size=9.5, leading=11.5, align=TA_CENTER),
+    "contact": style("contact", size=8, leading=9.8, align=TA_CENTER),
+    "body": style("body"),
+    "title": style("title", "CM-Bold", 9.3, 11),
+    "right": style("right", size=8.7, leading=11, align=TA_RIGHT),
+    "sub": style("sub", "CM-Italic", 8.4, 10.2),
+    "subRight": style("subRight", "CM-Italic", 8.4, 10.2, TA_RIGHT),
+    "bullet": style("bullet", leading=10.3, leftIndent=17, firstLineIndent=-8, spaceBefore=0.3),
 }
 
 
 def esc(t):
-    # Helvetica has no naira glyph, so spell the currency out.
-    t = t.replace("₦", "NGN ")
-    # Nor the Yoruba subdot letters, so Ṣòwò is written as its repo name.
-    t = t.replace("Ṣòwò", "Sowo").replace("Ṣ", "S").replace("ṣ", "s")
     return t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
 
 
 def link(url, text):
-    return f'<a href="{url}" color="#1d4ed8">{esc(text)}</a>'
+    # Links stay black like the rest of the page; they are still clickable.
+    return f'<a href="{url}">{esc(text)}</a>'
 
 
 def bare(url):
-    return url.replace("https://", "").replace("http://", "").rstrip("/")
+    return url.replace("https://", "").replace("http://", "").replace("www.", "").rstrip("/")
+
+
+def small_caps(title, big=11, small=8.8):
+    # Fake LaTeX \\scshape: capital first letters, smaller capitals for the rest.
+    words = []
+    for w in title.split(" "):
+        words.append(f'<font size="{big}">{esc(w[0].upper())}</font><font size="{small}">{esc(w[1:].upper())}</font>')
+    return " ".join(words)
 
 
 def section(title):
-    return [Spacer(1, 6), Paragraph(title, S["section"]),
-            HRFlowable(width="100%", thickness=0.6, color=RULE, spaceBefore=2, spaceAfter=4)]
+    return [Spacer(1, 4), Paragraph(small_caps(title), style("section", size=11, leading=12.5)),
+            HRFlowable(width="100%", thickness=0.5, color=black, spaceBefore=0.5, spaceAfter=3)]
 
 
 def row(left, right, left_style, right_style, right_width=150):
@@ -87,73 +97,61 @@ def row(left, right, left_style, right_style, right_width=150):
 
 
 def bullet(text):
-    return Paragraph(f"&#8226;&nbsp;&nbsp;{esc(text)}", S["bullet"])
+    return Paragraph(f"&#8226;&nbsp;&nbsp;{text}", S["bullet"])
 
 
 story = [
-    Paragraph(esc(R["name"]), S["name"]),
-    Spacer(1, 2),
+    Paragraph(esc(R["name"].upper()), S["name"]),
+    Spacer(1, 1),
     Paragraph(esc(R["headline"]), S["headline"]),
-    Spacer(1, 3),
-    Paragraph(" &nbsp;|&nbsp; ".join([
+    Spacer(1, 1),
+    Paragraph(" &nbsp;&#8226;&nbsp; ".join([
         esc(R["location"]), esc(R["phone"]), link("mailto:" + R["email"], R["email"]),
     ]), S["contact"]),
-    Paragraph(" &nbsp;|&nbsp; ".join([
-        "Portfolio: " + link(R["portfolioUrl"], R["portfolio"]),
-        "GitHub: " + link(R["githubUrl"], R["github"]),
-        "LinkedIn: " + link(R["linkedinUrl"], R["linkedin"]),
+    Paragraph(" &nbsp;&#8226;&nbsp; ".join([
+        link(R["portfolioUrl"], R["portfolio"]), link(R["githubUrl"], R["github"]), link(R["linkedinUrl"], R["linkedin"]),
     ]), S["contact"]),
-    Spacer(1, 2),
-    Paragraph(esc(R["openTo"]), S["openTo"]),
+    Paragraph(f'<i>{esc(R["openTo"])}</i>', S["contact"]),
 ]
 
-story += section("SUMMARY") + [Paragraph(esc(R["summary"]), S["body"])]
+story += section("Professional Summary") + [Paragraph(esc(R["summary"]), S["body"])]
 
-story += section("SKILLS")
-skills = Table([[Paragraph(esc(g["category"]), S["skillLabel"]), Paragraph(esc(", ".join(g["skills"])), S["skillValue"])]
-                for g in R["technicalSkills"]], colWidths=[92, WIDTH - 92])
-skills.setStyle(TableStyle([
-    ("VALIGN", (0, 0), (-1, -1), "TOP"),
-    ("LEFTPADDING", (0, 0), (-1, -1), 0), ("RIGHTPADDING", (0, 0), (-1, -1), 0),
-    ("TOPPADDING", (0, 0), (-1, -1), 0.5), ("BOTTOMPADDING", (0, 0), (-1, -1), 1),
-]))
-story.append(skills)
+story += section("Technical Skills")
+for g in R["technicalSkills"]:
+    story.append(bullet(f'<b>{esc(g["category"])}:</b> {esc(", ".join(g["skills"]))}'))
 
-story += section("EXPERIENCE")
+story += section("Professional Experience")
 for e in R["experience"]:
-    if e.get("url"):
-        head = [row(f'{esc(e["role"])}, {esc(e["company"])}', esc(e["period"]), "title", "right"),
-                row(f'{esc(e["tagline"])} · {esc(e["location"])}', link(e["url"], bare(e["url"])), "meta", "metaRight", 170)]
-    else:
-        head = [row(f'{esc(e["role"])}, {esc(e["company"])} <font name="Helvetica-Oblique" color="#4b5563">· {esc(e["location"])}</font>',
-                    esc(e["period"]), "title", "right")]
-    block = head + [bullet(h) for h in e["highlights"]]
-    story += [KeepTogether(block), Spacer(1, 4)]
+    company = link(e["url"], e["company"]) if e.get("url") else esc(e["company"])
+    block = [
+        row(esc(e["role"]), esc(e["period"]), "title", "right", 110),
+        row(f'{company} — {esc(e["tagline"])}', esc(e["location"]), "sub", "subRight", 110),
+    ] + [bullet(esc(h)) for h in e["highlights"]]
+    story += [KeepTogether(block), Spacer(1, 2.5)]
 
-story += section("PROJECTS")
+story += section("Featured Projects")
 for p in R["projects"]:
     title, _, subtitle = p["title"].partition(" — ")
-    links = link(p["liveUrl"], "Live") + " &nbsp;·&nbsp; " + link(p["githubUrl"], "Code")
+    links = link(p["liveUrl"], "Live") + " | " + link(p["githubUrl"], "Code")
     block = [
-        row(f'{esc(title)} <font name="Helvetica" color="#4b5563">— {esc(subtitle)}</font>', links, "title", "metaRight", 80),
-        Paragraph(esc(p["stack"]), S["meta"]),
-    ] + [bullet(h) for h in p["highlights"]]
-    story += [KeepTogether(block), Spacer(1, 3.5)]
+        row(f'{esc(title)}: <font name="CM">{esc(subtitle)}</font>', links, "title", "subRight", 70),
+        Paragraph(f'<i>{esc(p["stack"])}</i>', S["sub"]),
+    ] + [bullet(esc(h)) for h in p["highlights"]]
+    story += [KeepTogether(block), Spacer(1, 2.5)]
 
-story += section("ACHIEVEMENTS")
+story += section("Awards & Recognition")
 for a in R["achievements"]:
-    story.append(row(f'{esc(a["title"])} <font name="Helvetica" color="#4b5563">— {esc(a["issuer"])}</font>',
-                     esc(a["year"]), "body", "right", 40))
-    story.append(Spacer(1, 1.5))
+    story.append(row(f'<b>{esc(a["title"])}</b> — {esc(a["issuer"])}', f'<i>{esc(a["year"])}</i>', "body", "right", 40))
+    story.append(Spacer(1, 1))
 
-story += section("EDUCATION")
+story += section("Education")
 for ed in R["education"]:
-    story.append(row(f'{esc(ed["degree"])}, {esc(ed["institution"])}', esc(ed["period"]), "title", "right"))
+    story.append(row(f'<b>{esc(ed["degree"])}</b> &#8226; {esc(ed["institution"])}', f'<i>{esc(ed["period"])}</i>',
+                     "body", "right", 110))
 for c in R["certifications"]:
     name, _, year = c["name"].rpartition(", ")
-    story.append(Spacer(1, 2))
-    story.append(row(f'{esc(name)} <font name="Helvetica" color="#4b5563">— {esc(c["issuer"])}</font>',
-                     esc(year), "body", "right", 40))
+    story.append(Spacer(1, 1))
+    story.append(row(f'<b>{esc(name)}</b> &#8226; {esc(c["issuer"])}', f'<i>{esc(year)}</i>', "body", "right", 40))
 
 doc = SimpleDocTemplate(OUT, pagesize=A4, leftMargin=MARGIN_X, rightMargin=MARGIN_X,
                         topMargin=MARGIN_Y, bottomMargin=MARGIN_Y,
@@ -161,3 +159,4 @@ doc = SimpleDocTemplate(OUT, pagesize=A4, leftMargin=MARGIN_X, rightMargin=MARGI
                         subject="Full Stack Developer Resume",
                         keywords="Full Stack Developer, React, Next.js, Node.js, TypeScript, Python, FastAPI, Flutter, PostgreSQL")
 doc.build(story)
+print("pages:", doc.page)

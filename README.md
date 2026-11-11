@@ -145,7 +145,7 @@ The optimized production bundle will be generated in the `dist/` directory, read
 | **Ṣòwò** | AI sales assistant for WhatsApp vendors that haggles to a hidden floor price. **1st place, OSCA Ile-Ife OPEN//BUILD 2026.** | Next.js, FastAPI, PostgreSQL, Qwen3 | [GitHub](https://github.com/adeyanjufuhad/sowo) |
 | **Canary** | AI agents that try to break your team's business rules on every pull request. Built for Flip the Switch 2026. | Next.js, Node.js, Claude Code, Switch | [GitHub](https://github.com/adeyanjufuhad/canary) |
 | **Astrolabe** | Go CLI and GitHub Action that flags UI values drifting from your design tokens. | Go, Chrome DevTools Protocol | [GitHub](https://github.com/adeyanjufuhad/astrolabe) |
-| **Sova** | Record keeper for ajo, esusu and adashe savings circles with a commit-reveal draw and SHA-256 ledger. Built for Devcenter Hacktober 2026. | Flutter, Node.js, PostgreSQL | [GitHub](https://github.com/adeyanjufuhad/Sova) |
+| **Sova** | Record keeper for ajo, esusu and adashe savings circles with a commit-reveal draw and SHA-256 ledger. 2nd place at Devcenter Hacktober 2026. | Flutter, Node.js, PostgreSQL | [GitHub](https://github.com/adeyanjufuhad/Sova) |
 | **Edify** | Weekly lessons, self-marking practice and CBT tests for SS1–SS3 students. | Next.js, TypeScript, Neon | [GitHub](https://github.com/adeyanjufuhad/Edify) |
 | **CheckAm** | Free scam checker for Nigerian messages, links and screenshots, in English and Pidgin. | JavaScript, PWA, Tesseract.js | [GitHub](https://github.com/adeyanjufuhad/CheckAm) |
 | **FastTrack** | Five-minute onboarding and loan pre-qualification for Nigerian lenders. | Flutter, Neon, Node.js, Gemini | [GitHub](https://github.com/adeyanjufuhad/FastTrack) |

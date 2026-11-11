@@ -7,7 +7,7 @@ export const portfolioData = {
   status: "Open to new builds",
   location: "Lagos, Nigeria",
   seo_title: "Adeyanju Fuhad – Full Stack Developer · Portfolio",
-  seo_description: "Fuhad Adeyanju: full stack developer, founder of Sova and Edify, and first-place winner of OPEN//BUILD 2026 with Ṣòwò. I build the button and the thing the button talks to.",
+  seo_description: "Fuhad Adeyanju: full stack developer, founder of Sova and Edify, and first-place winner of OPEN//BUILD 2026 with Ṣòwò, and second at Devcenter Hacktober 2026 with Sova. I build the button and the thing the button talks to.",
   hero: {
     nameDisplay: "FUHAD",
     label: "my name is",
@@ -52,7 +52,7 @@ export const portfolioData = {
       },
       {
         src: "/projects/recent/sova.webp",
-        caption: "Sova · Hacktober 2026"
+        caption: "Sova · 2nd place, Hacktober 2026"
       },
       {
         src: "/projects/recent/edify.webp",
@@ -69,7 +69,7 @@ export const portfolioData = {
     ],
     body: "I build the button and the thing the button talks to. Full stack developer and founder, shipping web and mobile products for problems I can see from my own street.",
     cardLabel: "Main bio",
-    story: "I'm Fuhad, a full stack developer and Computer Engineering student at Obafemi Awolowo University. I build for web and mobile, and I take product quality personally: clean UI, solid architecture, and code that actually ships.\n\nI learnt the craft properly at Nupat Technologies, where I finished as Best Graduating Student in 2024. Internships at Arrowstack and Oasis came next, and that's where Kuza, Trackr and Blaze went from tickets to production on real deadlines.\n\nMost of what I build now starts with something broken around me. Savings circles that run on memory and trust became Sova. Students guessing what to study this week became Edify. Scam messages forwarded into family group chats became CheckAm. Lenders retyping bank statements became FastTrack. Vendors losing sales to slow WhatsApp replies became Ṣòwò, which took first place at OSCA Ile-Ife's OPEN//BUILD 2026 hackathon.\n\nI'm the founder of Sova and Edify, and I'm still the one writing the code, from the Postgres triggers to the last button state. Sova got me shortlisted as one of 30 developers selected to compete in Devcenter Hacktober 2026. I also build tools for other developers: Astrolabe catches design-system drift before it ships, and Canary sets AI agents loose on your business rules on every pull request.\n\nIf you need someone who can own a feature end to end and talk clearly about it while doing it, that's me.",
+    story: "I'm Fuhad, a full stack developer and Computer Engineering student at Obafemi Awolowo University. I build for web and mobile, and I take product quality personally: clean UI, solid architecture, and code that actually ships.\n\nI learnt the craft properly at Nupat Technologies, where I finished as Best Graduating Student in 2024. Internships at Arrowstack and Oasis came next, and that's where Kuza, Trackr and Blaze went from tickets to production on real deadlines.\n\nMost of what I build now starts with something broken around me. Savings circles that run on memory and trust became Sova. Students guessing what to study this week became Edify. Scam messages forwarded into family group chats became CheckAm. Lenders retyping bank statements became FastTrack. Vendors losing sales to slow WhatsApp replies became Ṣòwò, which took first place at OSCA Ile-Ife's OPEN//BUILD 2026 hackathon.\n\nI'm the founder of Sova and Edify, and I'm still the one writing the code, from the Postgres triggers to the last button state. Sova took second place at Devcenter Hacktober 2026, where I was one of 30 developers selected to compete. I also build tools for other developers: Astrolabe catches design-system drift before it ships, and Canary sets AI agents loose on your business rules on every pull request.\n\nIf you need someone who can own a feature end to end and talk clearly about it while doing it, that's me.",
     callout: "Right now: building Sova and Edify, competing in Flip the Switch with Canary, and open to full-time roles, freelance, contracts and collaborations.",
     note: "When I'm not shipping, you'll find me at GDG OAU events like Build with AI 2026, reading about how systems fail, or redesigning something that already works because it could feel better.",
     storyLabel: "Principles",
@@ -106,9 +106,9 @@ export const portfolioData = {
         rotate: "rotate-1"
       },
       {
-        emoji: "🏁",
-        title: "Devcenter Hacktober 2026",
-        desc: "Shortlisted as one of 30 developers selected to compete, with Sova. Results pending.",
+        emoji: "🥈",
+        title: "2nd Place, Devcenter Hacktober 2026",
+        desc: "Took second place with Sova, a tamper-evident record keeper for savings circles, among 30 selected developers.",
         year: "2026",
         color: "var(--ca-yellow)",
         rotate: "-rotate-1"
@@ -149,7 +149,7 @@ export const portfolioData = {
         role: "Founder",
         company: "Sova · Savings circles, on record",
         period: "2026 – Present",
-        note: "Shortlisted for Devcenter Hacktober 2026"
+        note: "2nd Place, Devcenter Hacktober 2026"
       },
       {
         role: "Founder",
@@ -705,7 +705,7 @@ export const portfolioData = {
     linkedin: "linkedin.com/in/adeyanju-fuhad-206802320",
     linkedinUrl: "https://www.linkedin.com/in/adeyanju-fuhad-206802320/",
     openTo: "Open to full-time roles: remote (worldwide) or on-site / hybrid in Lagos · freelance & contract",
-    summary: "Full stack developer who ships web and mobile products end to end, from database design to the last UI state. Founder of Sova and Edify, and first-place winner of OPEN//BUILD 2026 with Ṣòwò. Works across React, Next.js, Node.js, Python (FastAPI), Go, Flutter and PostgreSQL, and backs production work with automated tests and CI/CD.",
+    summary: "Full stack developer who ships web and mobile products end to end, from database design to the last UI state. Founder of Sova and Edify; won 1st place at OPEN//BUILD 2026 with Ṣòwò and 2nd place at Devcenter Hacktober 2026 with Sova. Works across React, Next.js, Node.js, Python (FastAPI), Go, Flutter and PostgreSQL, and backs production work with automated tests and CI/CD.",
     technicalSkills: [
       {
         category: "Languages",
@@ -783,6 +783,17 @@ export const portfolioData = {
     ],
     projects: [
       {
+        title: "Sova — Savings-Circle Records for Ajo & Esusu (2nd Place, Devcenter Hacktober 2026)",
+        isLive: true,
+        liveUrl: "https://sova.rumptycloud.app",
+        githubUrl: "https://github.com/adeyanjufuhad/Sova",
+        stack: "Flutter · Dart · Node.js · PostgreSQL 17 · Next.js · GitHub Actions",
+        highlights: [
+          "Commit-reveal payout draw anyone can recompute; members log payments with a bank reference and the circle votes on disputes.",
+          "Database triggers write every change to a per-circle SHA-256 hash chain, and a public verify page rechecks it in the browser."
+        ]
+      },
+      {
         title: "Ṣòwò — AI Sales Assistant for WhatsApp Vendors (1st Place, OPEN//BUILD 2026)",
         isLive: true,
         liveUrl: "https://web-one-mu-94.vercel.app",
@@ -793,14 +804,13 @@ export const portfolioData = {
         ]
       },
       {
-        title: "CheckAm — Scam Checker for Nigerian Messages & Links",
+        title: "Edify — Weekly Lessons & Exam Practice for SS1–SS3",
         isLive: true,
-        liveUrl: "https://check-am-five.vercel.app",
-        githubUrl: "https://github.com/adeyanjufuhad/CheckAm",
-        stack: "JavaScript · PWA · Tesseract.js · Serverless Functions · Groq",
+        liveUrl: "https://edify-sigma-plum.vercel.app",
+        githubUrl: "https://github.com/adeyanjufuhad/Edify",
+        stack: "Next.js · TypeScript · Neon Postgres · Tailwind CSS",
         highlights: [
-          "Free app that flags scam messages, screenshots and links in English or Pidgin; an on-device rules engine keeps data private.",
-          "AI can only raise a warning, never mark a message safe; 108 automated tests cover 44 real-world scam types."
+          "Weekly notes, self-marking practice, 434 likely exam questions and timed CBT tests, with progress saved per learner."
         ]
       },
       {
@@ -815,13 +825,14 @@ export const portfolioData = {
         ]
       },
       {
-        title: "Astrolabe — Design-System Drift Checker (Open Source)",
+        title: "Canary — AI Agents That Break Your Business Rules on Every PR (Flip the Switch 2026)",
         isLive: true,
-        liveUrl: "https://astrolabe-pi.vercel.app",
-        githubUrl: "https://github.com/adeyanjufuhad/astrolabe",
-        stack: "Go · Chrome DevTools Protocol · GitHub Actions · PostgreSQL",
+        liveUrl: "https://canary-rust.vercel.app",
+        githubUrl: "https://github.com/adeyanjufuhad/canary",
+        stack: "Next.js 16 · TypeScript · Hono · PostgreSQL · Claude Code · Switch · GitHub CLI",
         highlights: [
-          "Go CLI and GitHub Action that checks rendered colours, spacing and fonts against design tokens and fails PRs only on new drift."
+          "A red agent maps each PR diff to the team's plain-English rules, writes an exploit and runs it in a sandbox on a fresh database.",
+          "A blue agent pushes a fix and a regression test, then red re-runs the exploit; verified end to end on a real race-condition bug."
         ]
       }
     ],
@@ -839,8 +850,8 @@ export const portfolioData = {
         year: "2026"
       },
       {
-        title: "Shortlisted Developer — Devcenter Hacktober 2026",
-        issuer: "One of 30 selected to compete, with Sova; results pending",
+        title: "2nd Place — Devcenter Hacktober 2026 Hackathon",
+        issuer: "Won with Sova, among 30 selected developers",
         year: "2026"
       },
       {
