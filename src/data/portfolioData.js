@@ -783,6 +783,17 @@ export const portfolioData = {
     ],
     projects: [
       {
+        title: "Sova — Savings-Circle Records for Ajo & Esusu (2nd Place, Devcenter Hacktober 2026)",
+        isLive: true,
+        liveUrl: "https://sova.rumptycloud.app",
+        githubUrl: "https://github.com/adeyanjufuhad/Sova",
+        stack: "Flutter · Dart · Node.js · PostgreSQL 17 · Next.js · GitHub Actions",
+        highlights: [
+          "Commit-reveal payout draw anyone can recompute; members log payments with a bank reference and the circle votes on disputes.",
+          "Database triggers write every change to a per-circle SHA-256 hash chain, and a public verify page rechecks it in the browser."
+        ]
+      },
+      {
         title: "Ṣòwò — AI Sales Assistant for WhatsApp Vendors (1st Place, OPEN//BUILD 2026)",
         isLive: true,
         liveUrl: "https://web-one-mu-94.vercel.app",
@@ -793,14 +804,13 @@ export const portfolioData = {
         ]
       },
       {
-        title: "CheckAm — Scam Checker for Nigerian Messages & Links",
+        title: "Edify — Weekly Lessons & Exam Practice for SS1–SS3",
         isLive: true,
-        liveUrl: "https://check-am-five.vercel.app",
-        githubUrl: "https://github.com/adeyanjufuhad/CheckAm",
-        stack: "JavaScript · PWA · Tesseract.js · Serverless Functions · Groq",
+        liveUrl: "https://edify-sigma-plum.vercel.app",
+        githubUrl: "https://github.com/adeyanjufuhad/Edify",
+        stack: "Next.js · TypeScript · Neon Postgres · Tailwind CSS",
         highlights: [
-          "Free app that flags scam messages, screenshots and links in English or Pidgin; an on-device rules engine keeps data private.",
-          "AI can only raise a warning, never mark a message safe; 108 automated tests cover 44 real-world scam types."
+          "Weekly notes, self-marking practice, 434 likely exam questions and timed CBT tests, with progress saved per learner."
         ]
       },
       {
@@ -815,13 +825,14 @@ export const portfolioData = {
         ]
       },
       {
-        title: "Astrolabe — Design-System Drift Checker (Open Source)",
+        title: "Canary — AI Agents That Break Your Business Rules on Every PR (Flip the Switch 2026)",
         isLive: true,
-        liveUrl: "https://astrolabe-pi.vercel.app",
-        githubUrl: "https://github.com/adeyanjufuhad/astrolabe",
-        stack: "Go · Chrome DevTools Protocol · GitHub Actions · PostgreSQL",
+        liveUrl: "https://canary-rust.vercel.app",
+        githubUrl: "https://github.com/adeyanjufuhad/canary",
+        stack: "Next.js 16 · TypeScript · Hono · PostgreSQL · Claude Code · Switch · GitHub CLI",
         highlights: [
-          "Go CLI and GitHub Action that checks rendered colours, spacing and fonts against design tokens and fails PRs only on new drift."
+          "A red agent maps each PR diff to the team's plain-English rules, writes an exploit and runs it in a sandbox on a fresh database.",
+          "A blue agent pushes a fix and a regression test, then red re-runs the exploit; verified end to end on a real race-condition bug."
         ]
       }
     ],
